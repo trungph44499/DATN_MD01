@@ -39,13 +39,13 @@ const HomeScreen = ({ navigation }) => {
        image: <Image key={"0"} style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet01.png')} resizeMode='stretch'></Image>,
      },
      { 
-      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_3.jpg')} resizeMode='stretch'></Image>,
+      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet03.png')} resizeMode='stretch'></Image>,
     },
     { 
-      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_4.jpg')} resizeMode='stretch'></Image>,
+      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet04.png')} resizeMode='stretch'></Image>,
     },
     { 
-      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_2.jpg')} resizeMode='stretch'></Image>,
+      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet02.png')} resizeMode='stretch'></Image>,
     },
     ];
     setimageList(data);

@@ -10,49 +10,12 @@
       "img": "https://media.newyorker.com/photos/59095bb86552fa0be682d9d0/master/pass/Monkey-Selfie.jpg"
     },
     {
-      "id": "718d",
-      "fullname": "TDQ",
-      "email": "tdq@gmail.com",
-      "pass": "123",
-      "avatar": "https://i.pinimg.com/474x/6d/50/9d/6d509d329b23502e4f4579cbad5f3d7f.jpg",
-      "role": "user"
-    },
-    {
-      "id": "c9a9",
-      "fullname": "TDQ",
-      "email": "tdq1@gmail.com",
-      "pass": "123",
-      "avatar": "https://i.pinimg.com/474x/6d/50/9d/6d509d329b23502e4f4579cbad5f3d7f.jpg",
-      "role": "user"
-    },
-    {
-      "id": "a3fd",
+      "id": "a345",
       "fullname": "trung",
       "email": "trung@gmail.com",
       "pass": "123",
       "avatar": "https://i.pinimg.com/474x/6d/50/9d/6d509d329b23502e4f4579cbad5f3d7f.jpg",
-      "role": "user",
-      "address": "Ha Noi",
-      "phone": "0123456789",
-      "img": "https://img.freepik.com/free-photo/wallpaper-with-floral-pattern-that-says-spring_1340-25738.jpg"
-    },
-    {
-      "id": "7369",
-      "fullname": "long",
-      "email": "long@gmail.com",
-      "pass": "123",
-      "avatar": "https://i.pinimg.com/474x/6d/50/9d/6d509d329b23502e4f4579cbad5f3d7f.jpg",
-      "role": "user",
-      "img": "https://img.freepik.com/free-photo/wallpaper-with-floral-pattern-that-says-spring_1340-25738.jpg"
-    },
-    {
-      "id": "3e7f",
-      "fullname": "lam",
-      "email": "lam@gmail.com",
-      "pass": "123",
-      "avatar": "https://i.pinimg.com/474x/6d/50/9d/6d509d329b23502e4f4579cbad5f3d7f.jpg",
-      "role": "user",
-      "img": "https://media.newyorker.com/photos/59095bb86552fa0be682d9d0/master/pass/Monkey-Selfie.jpg"
+      "role": "user"
     }
   ],
   "plants": [
@@ -244,116 +207,5 @@
     }
   ],
   "notices": [],
-  "hoadons": [
-    {
-      "id_User": "3",
-      "diaChi": "DH",
-      "soDienThoai": "123",
-      "ship": false,
-      "pay": false,
-      "total": 3270000,
-      "status": 0,
-      "ngayMua": "2024-05-19T17:38:40.395Z",
-      "id": "4b37"
-    },
-    {
-      "id_User": "3",
-      "diaChi": "1",
-      "soDienThoai": "123",
-      "ship": true,
-      "pay": true,
-      "total": 6255000,
-      "status": 0,
-      "ngayMua": "2024-05-19T17:41:02.779Z",
-      "id": "8264"
-    },
-    {
-      "id_User": "c9a9",
-      "diaChi": "DH",
-      "soDienThoai": "123",
-      "ship": true,
-      "pay": true,
-      "total": 6515000,
-      "status": 0,
-      "ngayMua": "2024-05-22T11:00:11.410Z",
-      "id": "2aed"
-    },
-    {
-      "id_User": "718d",
-      "diaChi": "HN",
-      "soDienThoai": "123",
-      "ship": true,
-      "pay": true,
-      "total": 1215000,
-      "status": 0,
-      "ngayMua": "2024-05-26T10:13:13.861Z",
-      "id": "9fae"
-    },
-    {
-      "id_User": "92c5",
-      "diaChi": "HN",
-      "soDienThoai": "123",
-      "ship": true,
-      "pay": true,
-      "total": 13015000,
-      "status": 0,
-      "ngayMua": "2024-05-26T10:20:53.114Z",
-      "id": "a22f"
-    },
-    {
-      "id_User": "a3fd",
-      "diaChi": "s",
-      "soDienThoai": "3",
-      "ship": true,
-      "pay": true,
-      "total": 9865000,
-      "status": 0,
-      "ngayMua": "2024-06-07T07:50:40.127Z",
-      "id": "b81b"
-    },
-    {
-      "id_User": "a3fd",
-      "diaChi": "hoang ",
-      "soDienThoai": "5",
-      "ship": true,
-      "pay": true,
-      "total": 4265000,
-      "status": 1,
-      "ngayMua": "2024-06-07T07:56:31.305Z",
-      "id": "4724"
-    },
-    {
-      "id_User": "a3fd",
-      "diaChi": "a",
-      "soDienThoai": "2",
-      "ship": true,
-      "pay": true,
-      "total": 1265000,
-      "status": 1,
-      "ngayMua": "2024-06-07T07:57:50.266Z",
-      "id": "8c94"
-    },
-    {
-      "id_User": "a3fd",
-      "diaChi": "a",
-      "soDienThoai": "a",
-      "ship": true,
-      "pay": true,
-      "total": 2365000,
-      "status": 0,
-      "ngayMua": "2024-06-07T08:01:26.279Z",
-      "id": "c89b"
-    },
-    {
-      "id_User": "92c5",
-      "diaChi": "Rr",
-      "soDienThoai": "222",
-      "ship": true,
-      "pay": true,
-      "total": 7065000.000000001,
-      "status": 0,
-      "ngayMua": "2024-09-21T15:38:23.566Z",
-      "id": "013e"
-    }
-  ]
+  "hoadons": []
 }

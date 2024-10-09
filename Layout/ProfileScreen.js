@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   option:{
     gap: 18,
-    marginTop: 26
+    marginTop: 10
   },
   textGray:{
     color: 'gray'
