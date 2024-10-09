@@ -181,7 +181,7 @@ const SearchScreen = ({ navigation }) => {
                   ListPlanta.length != 0
                     ?
                     <View style={{ gap: 10 }}>
-                      <Text>Chậu cây trồng</Text>
+                      <Text>Sản Phẩm</Text>
                       <FlatList
                         scrollEnabled={false}
                         data={ListPlanta}

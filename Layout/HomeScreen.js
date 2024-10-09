@@ -3,12 +3,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const URL = 'http://192.168.1.29:3000';
-
+// 10.24.33.19
+// 192.168.1.29
 const {width: screenWidth} = Dimensions.get('window');
-// 10.24.58.91
-// 192.168.1.8
-// 192.168.1.7
-//192.168.1.29
 
 const HomeScreen = ({ navigation }) => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -107,7 +104,6 @@ const HomeScreen = ({ navigation }) => {
             <Text style={{ color: '#F79515', fontSize: 23, fontWeight: '400', marginBottom: 10 }}>
               Mua gì cũng có !!
             </Text>
-            
           </View>
           <ScrollView
            horizontal
@@ -124,11 +120,11 @@ const HomeScreen = ({ navigation }) => {
           </ScrollView>
           {/* <Image style={{ width: '100%', height: 230, justifyContent: 'center' }} source={require('../Image/banner_1.jpg')} /> */}
           <TouchableOpacity onPress={() => navigation.navigate('PlantSceen', { data: ListPlant })} style={styles.newSP}>
-            <Text style={{ fontSize: 15, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem hàng mới về</Text>
+            <Text style={{ fontSize: 17, color: 'black', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem hàng mới về ➭</Text>
           </TouchableOpacity>
         </View>
 
-        <Text style={{ fontSize: 22, fontWeight: 'bold', marginTop: 10, marginLeft: 10 }}>Giày Nike</Text>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', marginTop: 10, marginLeft: 10 }}>Dogs</Text>
 
         <FlatList
           numColumns={2}
@@ -139,7 +135,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemPlant}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemStyle}>Mã SP: {item.type}</Text>
+              <Text style={styles.itemStyle}>ID: {item.type}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
           )}
@@ -150,7 +146,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
         </TouchableOpacity>
 
-        <Text style={{ fontSize: 22, fontWeight: 'bold', marginLeft: 10 }}>Giày ADIDAS</Text>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', marginLeft: 10 }}>Cats</Text>
 
         <FlatList
           numColumns={2}
@@ -165,10 +161,32 @@ const HomeScreen = ({ navigation }) => {
               <Text style={styles.itemStyle}>Mã SP: {item.type}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
+            
+          )}
+        />
+        <TouchableOpacity onPress={() => navigation.navigate('PlantaSceen', { data: ListPlanta })} style={styles.Xemthem}>
+          <View />
+          <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
+        </TouchableOpacity>
+
+        <Text style={{ fontSize: 22, fontWeight: 'bold', marginTop: 10, marginLeft: 10 }}>Phụ kiện</Text>
+
+        <FlatList
+          numColumns={2}
+          scrollEnabled={false}
+          data={ListPlant.filter((item, index) => index < 4)}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemPlant}>
+              <Image source={{ uri: item.img }} style={styles.itemImage} />
+              <Text style={styles.itemName}>{item.name}</Text>
+              <Text style={styles.itemStyle}>ID: {item.type}</Text>
+              <Text style={styles.price}>{item.price} </Text>
+            </TouchableOpacity>
           )}
         />
 
-        <TouchableOpacity onPress={() => navigation.navigate('PlantaSceen', { data: ListPlanta })} style={styles.Xemthem}>
+        <TouchableOpacity onPress={() => navigation.navigate('PlantSceen', { data: ListPlant })} style={styles.Xemthem}>
           <View />
           <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
         </TouchableOpacity>
@@ -193,7 +211,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: '100%',
-    backgroundColor: 'white',
+    backgroundColor: '#F6F6F6',
     paddingHorizontal: 12,
   },
   image: {
@@ -244,13 +262,14 @@ const styles = StyleSheet.create({
   cart: {
     width: 40,
     height: 40,
-    backgroundColor: 'rgba(0,0,0,0.3)',
-    borderRadius: 12,
+    padding: 26,
+    backgroundColor: 'white',
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
     right: 40,
-    bottom: 30,
+    bottom: 550,
   },
   adminAdd: {
     width: 40,

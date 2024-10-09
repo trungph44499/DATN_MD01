@@ -74,7 +74,7 @@ const Register = (props) => {
             <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}> 
                 <View style={styles.container}>
-                    <Image style={{ width: 200, height: 100, marginBottom: 10, marginTop: 10 }}
+                    <Image style={{ width: 210, height: 100, marginBottom: 10, marginTop: 10 }}
                         source={require('../Image/logo_1.png')} />
                     <View style={{ width: '100%', gap: 10, alignItems: 'center', justifyContent: 'center' }}>
                         <Text style={{ fontWeight: 'bold', textAlign: 'center', justifyContent: 'center', fontSize: 30 }}>Tạo tài khoản</Text>
@@ -100,7 +100,7 @@ const Register = (props) => {
                         </Text>
                         <TouchableOpacity onPress={addUser}
                         style={styles.btn}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white' }}>Đăng ký</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'white',  }}>Đăng ký</Text>
                         </TouchableOpacity>
                         <Text style={{ textAlign: 'center', color: 'green' }}>________________Hoặc________________</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
@@ -142,14 +142,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 15,
         width: '90%',
+        height: 55,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     btn: {
-        width: 300,
-        height: 50,
+        width: '90%',
+        height: 55,
         borderRadius: 20,
-        backgroundColor: '#1976D2',
+        backgroundColor: '#825640',
         padding: 15,
         alignItems: 'center',
         justifyContent: 'center',

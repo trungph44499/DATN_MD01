@@ -48,7 +48,7 @@ const DetailProduct = ({ navigation, route }) => {
 
           <Image source={{ uri: item.img }} style={{ width: '100%', height: 300 }} />
 
-          <View style={{ gap: 16, paddingHorizontal: 50 }}>
+          <View style={{ gap: 16, paddingHorizontal: 40 }}>
             <View style={{ width: 200, padding: 10, borderRadius: 10, backgroundColor: '#3670E1', alignItems: 'center' }}>
               <Text style={{color: 'white', fontSize: 15}}>{item.type}</Text>
             </View>
@@ -59,16 +59,13 @@ const DetailProduct = ({ navigation, route }) => {
               <Text>Chi tiết sản phẩm
                 {'\n'}_______________________________________________
               </Text>
-              {item.size && <Text>Kích cỡ: {item.size}
+              {item.origin && <Text style={styles.txt}>Xuất xứ: {item.origin}
                 {'\n'}_______________________________________________
               </Text>}
-              {item.origin && <Text>Xuất xứ: {item.origin}
-                {'\n'}_______________________________________________
-              </Text>}
-              <Text>Tình trạng: <Text style={{ color: 'green', fontWeight: "bold" }}>còn {item.quantity} sp</Text>
+              <Text style={styles.txt}>Số lượng: <Text style={{ color: 'green', fontWeight: "bold" }}>còn {item.quantity} sp</Text>
                 {'\n'}_______________________________________________{'\n'}
               </Text>
-              <Text>Mô tả: {item.description}
+              <Text >Mô tả: {item.description}
               </Text>
             </ScrollView>
           </View>
@@ -108,5 +105,8 @@ const styles = StyleSheet.create({
     padding: 7,
     borderRadius: 4,
     borderWidth: 1,
+  },
+  txt: {
+    marginTop: 10
   }
 })

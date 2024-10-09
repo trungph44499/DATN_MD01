@@ -48,7 +48,7 @@ const ProfileScreen = ({navigation, route}) => {
           <Text onPress={() => navigation.navigate('NoticeScreen')}>Lịch sử giao dịch</Text>
           <Text>Q & A</Text>
         </View>
-
+        
         <View style={styles.option}>
           <Text style={styles.textGray}>Bảo mật và điều khoản 
           {'\n'}_________________________________________________</Text>

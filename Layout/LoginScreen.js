@@ -95,17 +95,19 @@ const LoginScreen = (props) => {
         <SafeAreaView style={{ flex: 1, justifyContent: 'center'}}>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
                 <View style={styles.container}>
-                    <Image style={{ width: 200, height: 100 }} source={require('../Image/logo_1.png')} />
-                    <View style={{ gap: 15 }}>
+                    <Image style={{ width: 400, height: 200}} source={require('../Image/logo_1.png')} />
+                    <View style={{ gap: 10 }}>
                         <Text style={{ fontWeight: '900', textAlign: 'center', justifyContent: 'center', fontSize: 35, marginTop: 30 }}>Chào mừng bạn</Text>
-                        <Text style={{ textAlign: 'center', justifyContent: 'center', fontSize: 15, fontStyle: 'normal', fontWeight: '400' }}>Đăng nhập tài khoản</Text>
-                        <TextInput style={[styles.input, { width: '300' }]}
-                            placeholder='Nhập email' onChangeText={(txt) => setEmail(txt)} value={email || ''} />
+                        <Text style={{ textAlign: 'center', justifyContent: 'center', fontSize: 20, fontStyle: 'normal', fontWeight: '400' }}>Đăng nhập tài khoản</Text>
+                        <View style={styles.input}>
+                            <TextInput style={{width: '100%'}}
+                                placeholder='Nhập email' onChangeText={(txt) => setEmail(txt)} value={email || ''} />
+                        </View>
                         <View style={styles.input}>
                             <TextInput style={{ width: '90%' }} secureTextEntry={showPass}
                                 placeholder='Nhập mật khẩu' onChangeText={(txt) => setPass(txt)} value={pass || ''} />
                             <TouchableOpacity onPress={() => setShowPass(!showPass)}>
-                                <Image style={{ width: 20, height: 20, marginTop: 4 }}
+                                <Image style={{ width: 25, height: 25, marginTop: 1 }}
                                     source={showPass ? require('../Image/visible.png') : require('../Image/invisible.png')} />
                             </TouchableOpacity>
                         </View>
@@ -122,7 +124,7 @@ const LoginScreen = (props) => {
                             </TouchableOpacity>
                         </View>
                         <TouchableOpacity style={styles.btn} onPress={() => CheckLogin()}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white' }}>Đăng nhập</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: 20, color: 'white' }}>Đăng nhập</Text>
                         </TouchableOpacity>
                         <Text style={{ textAlign: 'center', color: 'green' }}>________________Hoặc________________</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
@@ -161,12 +163,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 15,
         width: '90%',
+        height: 55,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     btn: {
         borderRadius: 20,
-        backgroundColor: '#1976D2',
+        backgroundColor: '#825640',
         padding: 15,
         alignItems: 'center',
     },
