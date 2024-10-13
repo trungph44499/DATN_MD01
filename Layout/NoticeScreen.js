@@ -50,7 +50,7 @@ const NoticeScreen = ({ navigation }) => {
   };
 
   const getDataPl = async () => {
-    const url = `${URL}/plants`;
+    const url = `${URL}/dogs`;
     const res = await fetch(url);
     if (res.ok) {
       const data = await res.json();
@@ -59,7 +59,7 @@ const NoticeScreen = ({ navigation }) => {
   };
 
   const getDataPlt = async () => {
-    const url = `${URL}/plantas`;
+    const url = `${URL}/cats`;
     const res = await fetch(url);
     if (res.ok) {
       const data = await res.json();
@@ -117,9 +117,9 @@ const NoticeScreen = ({ navigation }) => {
       sl += item.soLuongMua;
     }
     const id_pro = Cart[0]?.id_Product;
-    const Plant = dataPl.find(pl => pl.id == id_pro);
+    const Dog = dataPl.find(pl => pl.id == id_pro);
 
-    const Planta = dataPlt.find(plt => plt.id == id_pro);
+    const Cat = dataPlt.find(plt => plt.id == id_pro);
 
     
 
@@ -127,12 +127,12 @@ const NoticeScreen = ({ navigation }) => {
       <View>
         <Text>{formatDate(item.ngayMua)}</Text>
         <View style={styles.item}>
-          <Image source={{ uri: Plant?.img || Planta?.img }} style={styles.image} />
+          <Image source={{ uri: Dog?.img || Cat?.img }} style={styles.image} />
           <View style={{ padding: 20, justifyContent: 'space-between', gap: 10 }}>
             {item.status == 0 ? <Text style={{ color: 'green', fontSize: 16, fontWeight: 'bold' }}>Đặt hàng thành công</Text>
               : <Text style={{ color: 'red', fontSize: 16, fontWeight: 'bold' }}>Đã hủy đơn hàng</Text>}
-            <Text>{Plant?.name || Planta?.name}
-              <Text style={{ color: 'gray' }}>{'\n'}{Plant?.type}
+            <Text>{Dog?.name || Cat?.name}
+              <Text style={{ color: 'gray' }}>{'\n'}{Dog?.type}
               </Text></Text>
             <Text>mua {sl} sản phẩm</Text>
             <Text>Tổng tiền : {formatPrice(item.total)}</Text>

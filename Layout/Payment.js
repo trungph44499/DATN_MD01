@@ -133,9 +133,9 @@ const Payment = ({ navigation, route }) => {
             : seterr(true)
         }}
           style={{
-            borderRadius: 9, padding: 12, alignItems: 'center', backgroundColor: soDienThoai && diaChi ? 'green' : 'gray',
+            borderRadius: 9, padding: 12, alignItems: 'center', backgroundColor: soDienThoai && diaChi ? '#825640' : 'gray',
           }}>
-          <Text style={{ color: 'white' }}>Tiếp tục</Text>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Tiếp tục</Text>
         </TouchableOpacity>
       </View>
     </View>

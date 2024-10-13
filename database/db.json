@@ -18,7 +18,7 @@
       "role": "user"
     }
   ],
-  "plants": [
+  "dogs": [
     {
       "img": "https://petnow.com.vn/wp-content/uploads/2023/07/PD30607-poodle-teacup-mau-bo-xam-2.jpg",
       "name": "Corgi",
@@ -64,7 +64,7 @@
       "description": "ssssssss"
     }
   ],
-  "plantas": [
+  "cats": [
     {
       "id": "02e4",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/10/z4764619188244_ae52186489d119409f6a1d56808ae9f0.jpg",
@@ -204,8 +204,27 @@
       "id_Product": "4",
       "soLuongMua": 3,
       "giaMua": "2.350.000 ₫"
+    },
+    {
+      "id": "6888",
+      "id_bill": "ae1f",
+      "id_Product": "1",
+      "soLuongMua": 1,
+      "giaMua": "1.400.000₫"
     }
   ],
   "notices": [],
-  "hoadons": []
+  "hoadons": [
+    {
+      "id_User": "a345",
+      "diaChi": "ha dong",
+      "soDienThoai": "0123456789",
+      "ship": true,
+      "pay": true,
+      "total": 1415000,
+      "status": 0,
+      "ngayMua": "2024-10-13T15:50:32.477Z",
+      "id": "ae1f"
+    }
+  ]
 }

@@ -4,13 +4,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { URL } from './HomeScreen';
 import { useFocusEffect } from '@react-navigation/native';
 
-const PlantScreen = ({ navigation, route }) => {
+const DogScreen = ({ navigation, route }) => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [data, setData] = useState(route.params?.data || []);
 
-    const getListPlant = async () => {
+    const getListDog = async () => {
         try {
-            const res = await fetch(`${URL}/plants`);
+            const res = await fetch(`${URL}/dogs`);
             const data = await res.json();
             setData(data);
         } catch (err) {
@@ -34,17 +34,17 @@ const PlantScreen = ({ navigation, route }) => {
 
     useEffect(() => {
         checkUserRole();
-        getListPlant();
+        getListDog();
     }, []);
 
     useFocusEffect(
         useCallback(() => {
-            getListPlant();
+            getListDog();
         }, [])
     );
 
     const handleDelete = async (id, type) => {
-        let url = type === 'Nike' ? `${URL}/plants/${id}` : `${URL}/plantas/${id}`;
+        let url = type === 'Nike' ? `${URL}/dogs/${id}` : `${URL}/cats/${id}`;
 
         try {
             const response = await fetch(url, {
@@ -90,7 +90,7 @@ const PlantScreen = ({ navigation, route }) => {
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => navigation.navigate("DetailProduct", { item: item })}
-                        style={styles.itemPlant}>
+                        style={styles.itemDog}>
                         <Image source={{ uri: item.img }} style={styles.itemImage} />
                         <Text style={styles.itemName}>{item.name}</Text>
                         <Text style={styles.itemType}>Mã SP: {item.type}</Text>
@@ -112,7 +112,7 @@ const PlantScreen = ({ navigation, route }) => {
     );
 };
 
-export default PlantScreen;
+export default DogScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 20
     },
-    itemPlant: {
+    itemDog: {
         backgroundColor: 'white',
         width: '45%',
         borderRadius: 12,

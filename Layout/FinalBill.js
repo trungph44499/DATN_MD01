@@ -78,8 +78,8 @@ const FinalBill = ({ navigation, route }) => {
             </View>
 
             <ScrollView>
-                {Bill.status == 0 ? <Text style={{ color: 'green', textAlign: 'center' }}>Bạn đã đặt hàng thành công </Text>
-                : <Text style={{ color: 'red', textAlign: 'center' }}>Đơn hàng của bạn đã bị hủy bỏ </Text>}
+                {Bill.status == 0 ? <Text style={{ color: 'green', textAlign: 'center', fontWeight: 'bold', fontSize: 16 }}>Bạn đã đặt hàng thành công </Text>
+                : <Text style={{ color: 'red', textAlign: 'center', fontWeight: 'bold', fontSize: 16 }}>Đơn hàng của bạn đã bị hủy bỏ </Text>}
 
                 <View style={{ paddingHorizontal: 20, gap: 10, marginTop: 30 }}>
                     <UnderLine value={'Thông tin khách hàng'} color={'black'} />
@@ -131,9 +131,9 @@ const FinalBill = ({ navigation, route }) => {
                 }}
                     style={{
                         borderRadius: 9, padding: 12, alignItems: 'center',
-                        backgroundColor: 'green',
+                        backgroundColor: '#825640',
                     }}>
-                    <Text style={{ color: 'white' }}>Quay về trang chủ</Text>
+                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Quay về trang chủ</Text>
                 </TouchableOpacity>
             </View>
         </View>

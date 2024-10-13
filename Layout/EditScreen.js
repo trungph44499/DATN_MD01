@@ -48,9 +48,9 @@ const EditScreen = ({ navigation, route }) => {
 
     let url = '';
     if (category === 'Nike') {
-      url = `${URL}/plants/${product.id}`;
+      url = `${URL}/dogs/${product.id}`;
     } else if (category === 'ADIDAS') {
-      url = `${URL}/plantas/${product.id}`;
+      url = `${URL}/cats/${product.id}`;
     } else {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
       return;

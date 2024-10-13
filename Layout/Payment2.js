@@ -42,10 +42,10 @@ const Payment2 = ({ navigation, route }) => {
                         <Pressable
                             style={styles.btn}
                             onPress={() => { AddProducToCart(0) }}>
-                            <Text style={{ color: 'white' }}>Đồng ý</Text>
+                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Đồng ý</Text>
                         </Pressable>
                         <Text onPress={() => { AddProducToCart(1) }}
-                            style={{ textDecorationLine: 'underline' }}>Hủy bỏ</Text>
+                            style={{ textDecorationLine: 'underline', fontWeight: 'bold', fontSize: 16 }}>Hủy bỏ</Text>
                     </View>
                 </View>
             </Modal>
@@ -181,9 +181,9 @@ const Payment2 = ({ navigation, route }) => {
                 }}
                     style={{
                         borderRadius: 9, padding: 12, alignItems: 'center',
-                        backgroundColor: card && carddate && cardname && cvv ? 'green' : 'gray',
+                        backgroundColor: card && carddate && cardname && cvv ? '#825640' : 'gray',
                     }}>
-                    <Text style={{ color: 'white' }}>Tiếp tục</Text>
+                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Tiếp tục</Text>
                 </TouchableOpacity>
             </View>
 
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     btn: {
         padding: 14,
         borderRadius: 10,
-        backgroundColor: 'green',
+        backgroundColor: '#825640',
         marginVertical: 20,
         width: '100%',
         alignItems: "center"

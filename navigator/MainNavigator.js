@@ -6,11 +6,11 @@ import HomeScreen from '../Layout/HomeScreen';
 import SearchScreen from '../Layout/SearchScreen';
 import NoticeScreen from '../Layout/NoticeScreen';
 import ProfileScreen from '../Layout/ProfileScreen';
-import PlantSceen from '../Layout/PlantSceen';
+import DogScreen from '../Layout/DogScreen';
 import ManageUser from '../Layout/ManageUser';
 import Payment from '../Layout/Payment';
 import DetailProduct from '../Layout/DetailProduct';
-import PlantaSceen from '../Layout/PlantaScreen';
+import CatScreen from '../Layout/CatScreen';
 import CartScreen from '../Layout/CartScreen';
 import Payment2 from '../Layout/Payment2';
 import FinalBill from '../Layout/FinalBill';
@@ -68,8 +68,8 @@ const MainNavigator = () => {
             <Stack.Screen name='Payment' component={Payment} />
             <Stack.Screen name='Payment2' component={Payment2} />
             <Stack.Screen name='DetailProduct' component={DetailProduct} />
-            <Stack.Screen name='PlantSceen' component={PlantSceen} />
-            <Stack.Screen name='PlantaSceen' component={PlantaSceen} />
+            <Stack.Screen name='DogScreen' component={DogScreen} />
+            <Stack.Screen name='CatScreen' component={CatScreen} />
             <Stack.Screen name='CartScreen' component={CartScreen} />
             <Stack.Screen name='SearchScreen' component={SearchScreen} />
             <Stack.Screen name='FinalBill' component={FinalBill} />

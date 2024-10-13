@@ -113,7 +113,7 @@ const CartScreen = ({ navigation }) => {
                     </View>
                     <TouchableOpacity onPress={() => { TaoMaHoaDon() }}
                         style={{
-                            borderRadius: 9, padding: 12, alignItems: 'center', backgroundColor: 'green',
+                            borderRadius: 9, padding: 12, alignItems: 'center', backgroundColor: '#825640',
                         }}>
                         <Text style={{ color: 'white' }}>Tiến hành thanh toán</Text>
                     </TouchableOpacity>

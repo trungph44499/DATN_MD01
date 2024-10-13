@@ -7,8 +7,8 @@ const SearchScreen = ({ navigation }) => {
   const [txtSearch, settxtSearch] = useState('');
   const [result, setresult] = useState(false)
   const [ListSearch, setListSearch] = useState([]);
-  const [ListPlant, setListPlant] = useState([]);
-  const [ListPlanta, setListPlanta] = useState([]);
+  const [ListDog, setListDog] = useState([]);
+  const [ListCat, setListCat] = useState([]);
 
   const getListSearch = async () => {
     let url = `${URL}/search`;
@@ -60,29 +60,29 @@ const SearchScreen = ({ navigation }) => {
       .catch(err => console.log(err))
   }
 
-  const getListPlant = async () => {
+  const getListDog = async () => {
     if (txtSearch == "") {
       return;
     }
-    let url = `${URL}/plants?name=${txtSearch}`;
+    let url = `${URL}/dogs?name=${txtSearch}`;
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setListPlant(data);
+      setListDog(data);
     } catch (err) {
       console.log(err);
     }
   }
 
-  const getListPlanta = async () => {
+  const getListCat = async () => {
     if (txtSearch == "") {
       return;
     }
-    let url = `${URL}/plantas?name=${txtSearch}`;
+    let url = `${URL}/cats?name=${txtSearch}`;
     await fetch(url)
       .then(res => res.json())
       .then(data => {
-        setListPlanta(data);
+        setListCat(data);
       })
       .catch(err => console.log(err))
   }
@@ -91,8 +91,8 @@ const SearchScreen = ({ navigation }) => {
     if (txtSearch == "") {
       setresult(false)
     }
-    getListPlant();
-    getListPlanta();
+    getListDog();
+    getListCat();
     getListSearch();
     deleteSearch();
   }, [txtSearch])
@@ -144,7 +144,7 @@ const SearchScreen = ({ navigation }) => {
           </View>
           :
           <View>
-            {ListPlant.length == 0 && ListPlanta.length == 0
+            {ListDog.length == 0 && ListCat.length == 0
               ?
               <Text style={{ fontSize: 15 }}>Không tìm thấy</Text>
               :
@@ -152,17 +152,17 @@ const SearchScreen = ({ navigation }) => {
               <View style={{ gap: 12 }}>
                 <Text style={{ fontSize: 15 }}>Kết quả tìm kiếm</Text>
                 {
-                  ListPlant.length != 0
+                  ListDog.length != 0
                     ?
                     <View style={{ gap: 10 }}>
                       <Text>Sản Phẩm</Text>
                       <FlatList
                         scrollEnabled={false}
-                        data={ListPlant}
+                        data={ListDog}
                         keyExtractor={item => item.id}
                         renderItem={({ item }) =>
                           <TouchableOpacity onPress={() => { navigation.navigate('DetailProduct', { item: item }) }}
-                            style={styles.itemPlant}>
+                            style={styles.itemDog}>
                             <Image source={{ uri: item.img }}
                               style={styles.itemImage} />
                             <View style={{ gap: 5 }}>
@@ -178,17 +178,17 @@ const SearchScreen = ({ navigation }) => {
                 }
 
                 {
-                  ListPlanta.length != 0
+                  ListCat.length != 0
                     ?
                     <View style={{ gap: 10 }}>
                       <Text>Sản Phẩm</Text>
                       <FlatList
                         scrollEnabled={false}
-                        data={ListPlanta}
+                        data={ListCat}
                         keyExtractor={item => item.id}
                         renderItem={({ item }) =>
                           <TouchableOpacity onPress={() => { navigation.navigate('DetailProduct', { item: item }) }}
-                            style={styles.itemPlant}>
+                            style={styles.itemDog}>
                             <Image source={{ uri: item.img }}
                               style={styles.itemImage} />
                             <View style={{ gap: 5 }}>
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   listSearch: {
     gap: 12
   },
-  itemPlant: {
+  itemDog: {
     padding: 20,
     marginHorizontal: 20,
     borderWidth: 1,

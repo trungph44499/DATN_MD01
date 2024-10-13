@@ -3,65 +3,62 @@ import React, { useEffect, useState, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const URL = 'http://192.168.1.29:3000';
-// 10.24.33.19
-// 192.168.1.29
-const {width: screenWidth} = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation }) => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [ListPlant, setListPlant] = useState([]);
-  const [ListPlanta, setListPlanta] = useState([]);
+  const [ListDog, setListDog] = useState([]);
+  const [ListCat, setListCat] = useState([]);
 
   const [imageList, setimageList] = useState([]);
   const [currentImage, setcurrentImage] = useState(0);
 
-  const getListPlant = async () => {
-    await fetch(`${URL}/plants`)
+  const getListDog = async () => {
+    await fetch(`${URL}/dogs`)
       .then(res => res.json())
       .then(data => {
-        setListPlant(data);
+        setListDog(data);
       })
       .catch(err => console.log(err));
   };
 
-  const getListPlanta = async () => {
-    await fetch(`${URL}/plantas`)
+  const getListCat = async () => {
+    await fetch(`${URL}/cats`)
       .then(res => res.json())
       .then(data => {
-        setListPlanta(data);
+        setListCat(data);
       })
       .catch(err => console.log(err));
   };
 
   useEffect(() => {
     const data = [
-     { 
-       image: <Image key={"0"} style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet01.png')} resizeMode='stretch'></Image>,
-     },
-     { 
-      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet03.png')} resizeMode='stretch'></Image>,
-    },
-    { 
-      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet04.png')} resizeMode='stretch'></Image>,
-    },
-    { 
-      image: <Image style={{width: screenWidth, height: 230,}} source={require('../Image/banner_pet02.png')} resizeMode='stretch'></Image>,
-    },
+      {
+        image: <Image key={"0"} style={{ width: screenWidth, height: 230, }} source={require('../Image/banner_pet01.png')} resizeMode='stretch'></Image>,
+      },
+      {
+        image: <Image style={{ width: screenWidth, height: 230, }} source={require('../Image/banner_pet03.png')} resizeMode='stretch'></Image>,
+      },
+      {
+        image: <Image style={{ width: screenWidth, height: 230, }} source={require('../Image/banner_pet05.png')} resizeMode='stretch'></Image>,
+      },
+      {
+        image: <Image style={{ width: screenWidth, height: 230, }} source={require('../Image/banner_pet02.png')} resizeMode='stretch'></Image>,
+      },
     ];
     setimageList(data);
 
-    getListPlant();
-    getListPlanta();
+    getListDog();
+    getListCat();
     checkUserRole();
 
     const unsubscribe = navigation.addListener('focus', () => {
-      getListPlant();
-      getListPlanta();
+      getListDog();
+      getListCat();
     });
 
     return unsubscribe;
   }, [navigation]);
-
 
   const handleScroll = (e) => {
     if(!e) {
@@ -95,8 +92,8 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        
-        <View style={{ width: screenWidth , height: 320 }}>
+
+        <View style={{ width: screenWidth, height: 320 }}>
           <View>
             <Text style={{ color: '#F79515', fontSize: 23, marginTop: 30, fontWeight: '400', }}>
               Pet Shop
@@ -105,21 +102,23 @@ const HomeScreen = ({ navigation }) => {
               Mua gì cũng có !!
             </Text>
           </View>
+
           <ScrollView
-           horizontal
-          //  pagingEnabled
-           contentContainerStyle={{width: screenWidth * imageList.length, height:230}}
-           onScroll={handleScroll}
-           scrollEventThrottle={16}
-           >
-            {imageList.map((e, index) => 
-            <View key={index.toString()}>
-              {e.image} 
-            </View>
-          )}
+            horizontal
+            //  pagingEnabled
+            contentContainerStyle={{ width: screenWidth * imageList.length, height: 230 }}
+            onScroll={handleScroll}
+            scrollEventThrottle={16}
+          >
+            {imageList.map((e, index) =>
+              <View key={index.toString()}>
+                {e.image}
+              </View>
+            )}
           </ScrollView>
+
           {/* <Image style={{ width: '100%', height: 230, justifyContent: 'center' }} source={require('../Image/banner_1.jpg')} /> */}
-          <TouchableOpacity onPress={() => navigation.navigate('PlantSceen', { data: ListPlant })} style={styles.newSP}>
+          <TouchableOpacity onPress={() => navigation.navigate('DogScreen', { data: ListDog })} style={styles.newSP}>
             <Text style={{ fontSize: 17, color: 'black', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem hàng mới về ➭</Text>
           </TouchableOpacity>
         </View>
@@ -129,10 +128,10 @@ const HomeScreen = ({ navigation }) => {
         <FlatList
           numColumns={2}
           scrollEnabled={false}
-          data={ListPlant.filter((item, index) => index < 4)}
+          data={ListDog.filter((item, index) => index < 4)}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemPlant}>
+            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
               <Text style={styles.itemStyle}>ID: {item.type}</Text>
@@ -141,7 +140,7 @@ const HomeScreen = ({ navigation }) => {
           )}
         />
 
-        <TouchableOpacity onPress={() => navigation.navigate('PlantSceen', { data: ListPlant })} style={styles.Xemthem}>
+        <TouchableOpacity onPress={() => navigation.navigate('DogScreen', { data: ListDog })} style={styles.Xemthem}>
           <View />
           <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
         </TouchableOpacity>
@@ -152,19 +151,19 @@ const HomeScreen = ({ navigation }) => {
           numColumns={2}
           extraData={4}
           scrollEnabled={false}
-          data={ListPlanta.filter((item, index) => index < 4)}
+          data={ListCat.filter((item, index) => index < 4)}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemPlant}>
+            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
               <Text style={styles.itemStyle}>Mã SP: {item.type}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
-            
+
           )}
         />
-        <TouchableOpacity onPress={() => navigation.navigate('PlantaSceen', { data: ListPlanta })} style={styles.Xemthem}>
+        <TouchableOpacity onPress={() => navigation.navigate('CatScreen', { data: ListCat })} style={styles.Xemthem}>
           <View />
           <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
         </TouchableOpacity>
@@ -174,10 +173,10 @@ const HomeScreen = ({ navigation }) => {
         <FlatList
           numColumns={2}
           scrollEnabled={false}
-          data={ListPlant.filter((item, index) => index < 4)}
+          data={ListDog.filter((item, index) => index < 4)}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemPlant}>
+            <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
               <Text style={styles.itemStyle}>ID: {item.type}</Text>
@@ -186,7 +185,7 @@ const HomeScreen = ({ navigation }) => {
           )}
         />
 
-        <TouchableOpacity onPress={() => navigation.navigate('PlantSceen', { data: ListPlant })} style={styles.Xemthem}>
+        <TouchableOpacity onPress={() => navigation.navigate('DogScreen', { data: ListDog })} style={styles.Xemthem}>
           <View />
           <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
         </TouchableOpacity>
@@ -219,7 +218,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
   },
-  itemPlant: {
+  itemDog: {
     backgroundColor: 'white',
     width: '45%',
     borderRadius: 12,

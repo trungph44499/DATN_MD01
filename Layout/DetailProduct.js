@@ -32,53 +32,55 @@ const DetailProduct = ({ navigation, route }) => {
 
 
   return (
-    <ScrollView style={{flex: 1}}>
-        <View style={styles.container}>
-          <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Image style={{ width: 20, height: 20 }}
-                source={require('../Image/back.png')} />
-            </TouchableOpacity>
-            <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>{item.name}</Text>
-            <TouchableOpacity style={{ width: 50 }} onPress={() => navigation.navigate('CartScreen')}>
-              <Image style={{ width: 26, height: 26 }}
-                source={require('../Image/cart.png')} />
-            </TouchableOpacity>
-          </View>
-
-          <Image source={{ uri: item.img }} style={{ width: '100%', height: 300 }} />
-
-          <View style={{ gap: 16, paddingHorizontal: 40 }}>
-            <View style={{ width: 200, padding: 10, borderRadius: 10, backgroundColor: '#3670E1', alignItems: 'center' }}>
-              <Text style={{color: 'white', fontSize: 15}}>{item.type}</Text>
-            </View>
-
-            <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#EB4F26' }}>{item.price} </Text>
-
-            <ScrollView style={{ height: 200, padding: 1}}>
-              <Text>Chi tiết sản phẩm
-                {'\n'}_______________________________________________
-              </Text>
-              {item.origin && <Text style={styles.txt}>Xuất xứ: {item.origin}
-                {'\n'}_______________________________________________
-              </Text>}
-              <Text style={styles.txt}>Số lượng: <Text style={{ color: 'green', fontWeight: "bold" }}>còn {item.quantity} sp</Text>
-                {'\n'}_______________________________________________{'\n'}
-              </Text>
-              <Text >Mô tả: {item.description}
-              </Text>
-            </ScrollView>
-          </View>
-        
-          <TouchableOpacity onPress={() => {
-            dispatch(addItem(item))
-            ToastAndroid.show('Đã thêm vào giỏ hàng',0);
-          }}
-            style={{ borderRadius: 9, padding: 12, marginHorizontal: 20, alignItems: 'center', backgroundColor: '#3670E1',
-            position: 'relative', bottom: 40, width: '90%' , marginTop: 50}}>
-            <Text style={{ color: 'white' }}>Thêm vào giỏ hàng</Text>
+    <ScrollView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image style={{ width: 20, height: 20 }}
+              source={require('../Image/back.png')} />
+          </TouchableOpacity>
+          <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>{item.name}</Text>
+          <TouchableOpacity style={{ width: 50 }} onPress={() => navigation.navigate('CartScreen')}>
+            <Image style={{ width: 26, height: 26 }}
+              source={require('../Image/cart.png')} />
           </TouchableOpacity>
         </View>
+
+        <Image source={{ uri: item.img }} style={{ width: '100%', height: 300 }} />
+
+        <View style={{ gap: 16, paddingHorizontal: 40 }}>
+          <View style={{ width: 180, padding: 8, borderRadius: 10, backgroundColor: '#825640', alignItems: 'center' }}>
+            <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>{item.type}</Text>
+          </View>
+
+          <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#EB4F26' }}>{item.price} </Text>
+
+          <ScrollView style={{ height: 200, padding: 1 }}>
+            <Text>Chi tiết sản phẩm
+              {'\n'}_______________________________________________
+            </Text>
+            {item.origin && <Text style={styles.txt}>Xuất xứ: {item.origin}
+              {'\n'}_______________________________________________
+            </Text>}
+            <Text style={styles.txt}>Số lượng: <Text style={{ color: 'green', fontWeight: "bold" }}>còn {item.quantity} sp</Text>
+              {'\n'}_______________________________________________{'\n'}
+            </Text>
+            <Text >Mô tả: {item.description}
+            </Text>
+          </ScrollView>
+        </View>
+
+        <TouchableOpacity onPress={() => {
+          dispatch(addItem(item))
+          ToastAndroid.show('Đã thêm vào giỏ hàng', 0);
+        }}
+          style={{
+            borderRadius: 9, padding: 12, marginHorizontal: 20, alignItems: 'center', backgroundColor: '#825640',
+            position: 'relative', bottom: 40, width: '90%', marginTop: 50
+          }}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Thêm vào giỏ hàng</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   )
 }
