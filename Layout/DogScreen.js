@@ -72,7 +72,7 @@ const DogScreen = ({ navigation, route }) => {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image style={{ width: 20, height: 20 }} source={require('../Image/back.png')} />
                 </TouchableOpacity>
-                <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>Giày Nike</Text>
+                <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>DOGS</Text>
                 <TouchableOpacity style={{ width: 50 }} onPress={() => navigation.navigate('CartScreen')}>
                     <Image style={{ width: 26, height: 26 }} source={require('../Image/cart.png')} />
                 </TouchableOpacity>

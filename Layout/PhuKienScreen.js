@@ -4,13 +4,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { URL } from './HomeScreen';
 import { useFocusEffect } from '@react-navigation/native';
 
-const CatScreen = ({ navigation, route }) => {
+const PhuKienScreen = ({ navigation, route }) => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [data, setData] = useState(route.params?.data || []);
 
-    const getListCat = async () => {
+    const getListPhuKien = async () => {
         try {
-            const res = await fetch(`${URL}/cats`);
+            const res = await fetch(`${URL}/phukien`);
             const data = await res.json();
             setData(data);
         } catch (err) {
@@ -34,17 +34,17 @@ const CatScreen = ({ navigation, route }) => {
 
     useEffect(() => {
         checkUserRole();
-        getListCat();
+        getListPhuKien();
     }, []);
 
     useFocusEffect(
         useCallback(() => {
-            getListCat();
+            getListPhuKien();
         }, [])
     );
 
     const handleDelete = async (id, type) => {
-        let url = type === 'ADIDAS' ? `${URL}/dogs/${id}` : `${URL}/cats/${id}`;
+        let url = type === 'Nike' ? `${URL}/dogs/${id}` : `${URL}/cats/${id}`;
 
         try {
             const response = await fetch(url, {
@@ -72,7 +72,7 @@ const CatScreen = ({ navigation, route }) => {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image style={{ width: 20, height: 20 }} source={require('../Image/back.png')} />
                 </TouchableOpacity>
-                <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>CATS</Text>
+                <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>PHỤ KIỆN</Text>
                 <TouchableOpacity style={{ width: 50 }} onPress={() => navigation.navigate('CartScreen')}>
                     <Image style={{ width: 26, height: 26 }} source={require('../Image/cart.png')} />
                 </TouchableOpacity>
@@ -83,7 +83,7 @@ const CatScreen = ({ navigation, route }) => {
                 <Text>Hàng mới về</Text>
                 <Text>Hàng Sale</Text>
             </View>
-
+            
             <FlatList
                 numColumns={2}
                 data={data}
@@ -112,7 +112,7 @@ const CatScreen = ({ navigation, route }) => {
     );
 };
 
-export default CatScreen;
+export default PhuKienScreen;
 
 const styles = StyleSheet.create({
     container: {

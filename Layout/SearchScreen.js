@@ -9,6 +9,7 @@ const SearchScreen = ({ navigation }) => {
   const [ListSearch, setListSearch] = useState([]);
   const [ListDog, setListDog] = useState([]);
   const [ListCat, setListCat] = useState([]);
+  const [ListPhuKien, setListPhuKien] = useState([]);
 
   const getListSearch = async () => {
     let url = `${URL}/search`;
@@ -87,6 +88,20 @@ const SearchScreen = ({ navigation }) => {
       .catch(err => console.log(err))
   }
 
+  const getListPhuKien = async () => {
+    if (txtSearch == "") {
+      return;
+    }
+    let url = `${URL}/phukien?name=${txtSearch}`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      setListPhuKien(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  
   useEffect(() => {
     if (txtSearch == "") {
       setresult(false)
@@ -94,6 +109,7 @@ const SearchScreen = ({ navigation }) => {
     getListDog();
     getListCat();
     getListSearch();
+    getListPhuKien();
     deleteSearch();
   }, [txtSearch])
 
@@ -104,7 +120,7 @@ const SearchScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={()=>settxtSearch("")}>
+        <TouchableOpacity onPress={() => settxtSearch("")}>
           <Image style={{ width: 20, height: 20 }}
             source={require('../Image/reset.png')} />
         </TouchableOpacity>
@@ -144,7 +160,7 @@ const SearchScreen = ({ navigation }) => {
           </View>
           :
           <View>
-            {ListDog.length == 0 && ListCat.length == 0
+            {ListDog.length == 0 && ListCat.length == 0 && ListPhuKien.length == 0
               ?
               <Text style={{ fontSize: 15 }}>Không tìm thấy</Text>
               :
@@ -167,9 +183,9 @@ const SearchScreen = ({ navigation }) => {
                               style={styles.itemImage} />
                             <View style={{ gap: 5 }}>
                               <Text style={styles.price}>{item.name}</Text>
-                              <Text style={{ fontSize: 16, color: 'red', fontWeight: "800" }}>{item.price} </Text>
-                              <Text style={{fontSize: 12}}>{item.type}</Text>
-                              <Text style={{fontSize: 12, fontWeight: "600"}}>Còn {item.quantity} sp</Text>
+                              <Text style={{ fontSize: 16, color: '#EB4F26', fontWeight: "800" }}>{item.price} </Text>
+                              <Text style={{ fontSize: 12 }}>{item.type}</Text>
+                              <Text style={{ fontSize: 12, fontWeight: "600" }}>Còn {item.quantity} sp</Text>
                             </View>
                           </TouchableOpacity>} >
                       </FlatList>
@@ -192,9 +208,36 @@ const SearchScreen = ({ navigation }) => {
                             <Image source={{ uri: item.img }}
                               style={styles.itemImage} />
                             <View style={{ gap: 5 }}>
+                            <Text style={styles.price}>{item.name}</Text>
+                              <Text style={{ fontSize: 16, color: '#EB4F26', fontWeight: "800" }}>{item.price} </Text>
+                              <Text style={{ fontSize: 12 }}>{item.type}</Text>
+                              <Text style={{ fontSize: 12, fontWeight: "600" }}>Còn {item.quantity} sp</Text>
+                            </View>
+                          </TouchableOpacity>} >
+                      </FlatList>
+                    </View>
+                    : <View></View>
+                }
+
+{
+                  ListPhuKien.length != 0
+                    ?
+                    <View style={{ gap: 10 }}>
+                      <Text>Sản Phẩm</Text>
+                      <FlatList
+                        scrollEnabled={false}
+                        data={ListPhuKien}
+                        keyExtractor={item => item.id}
+                        renderItem={({ item }) =>
+                          <TouchableOpacity onPress={() => { navigation.navigate('DetailProduct', { item: item }) }}
+                            style={styles.itemDog}>
+                            <Image source={{ uri: item.img }}
+                              style={styles.itemImage} />
+                            <View style={{ gap: 5 }}>
                               <Text style={styles.price}>{item.name}</Text>
-                              <Text style={{ fontSize: 16 }}>{item.price} đ</Text>
-                              <Text>Còn {item.quantity} sp</Text>
+                              <Text style={{ fontSize: 16, color: '#EB4F26', fontWeight: "800" }}>{item.price} </Text>
+                              <Text style={{ fontSize: 12 }}>{item.type}</Text>
+                              <Text style={{ fontSize: 12, fontWeight: "600" }}>Còn {item.quantity} sp</Text>
                             </View>
                           </TouchableOpacity>} >
                       </FlatList>

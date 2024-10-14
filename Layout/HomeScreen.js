@@ -9,6 +9,7 @@ const HomeScreen = ({ navigation }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [ListDog, setListDog] = useState([]);
   const [ListCat, setListCat] = useState([]);
+  const [ListPhuKien, setListPhuKien] = useState([]);
 
   const [imageList, setimageList] = useState([]);
   const [currentImage, setcurrentImage] = useState(0);
@@ -31,6 +32,15 @@ const HomeScreen = ({ navigation }) => {
       .catch(err => console.log(err));
   };
 
+  const getListPhuKien = async () => {
+    await fetch(`${URL}/phukien`)
+      .then(res => res.json())
+      .then(data => {
+        setListPhuKien(data);
+      })
+      .catch(err => console.log(err));
+  };
+  
   useEffect(() => {
     const data = [
       {
@@ -50,11 +60,13 @@ const HomeScreen = ({ navigation }) => {
 
     getListDog();
     getListCat();
+    getListPhuKien();
     checkUserRole();
 
     const unsubscribe = navigation.addListener('focus', () => {
       getListDog();
       getListCat();
+      getListPhuKien();
     });
 
     return unsubscribe;
@@ -173,7 +185,7 @@ const HomeScreen = ({ navigation }) => {
         <FlatList
           numColumns={2}
           scrollEnabled={false}
-          data={ListDog.filter((item, index) => index < 4)}
+          data={ListPhuKien.filter((item, index) => index < 4)}
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
@@ -185,7 +197,7 @@ const HomeScreen = ({ navigation }) => {
           )}
         />
 
-        <TouchableOpacity onPress={() => navigation.navigate('DogScreen', { data: ListDog })} style={styles.Xemthem}>
+        <TouchableOpacity onPress={() => navigation.navigate('PhuKienScreen', { data: ListPhuKien })} style={styles.Xemthem}>
           <View />
           <Text style={{ fontSize: 14, color: 'green', fontWeight: 'bold', textDecorationLine: 'underline' }}>Xem thêm</Text>
         </TouchableOpacity>

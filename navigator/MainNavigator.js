@@ -13,6 +13,7 @@ import DetailProduct from '../Layout/DetailProduct';
 import CatScreen from '../Layout/CatScreen';
 import CartScreen from '../Layout/CartScreen';
 import Payment2 from '../Layout/Payment2';
+import PhuKienScreen from '../Layout/PhuKienScreen';
 import FinalBill from '../Layout/FinalBill';
 import AddScreen from '../Layout/AddScreen';
 import EditScreen from '../Layout/EditScreen';
@@ -70,6 +71,7 @@ const MainNavigator = () => {
             <Stack.Screen name='DetailProduct' component={DetailProduct} />
             <Stack.Screen name='DogScreen' component={DogScreen} />
             <Stack.Screen name='CatScreen' component={CatScreen} />
+            <Stack.Screen name='PhuKienScreen' component={PhuKienScreen} />
             <Stack.Screen name='CartScreen' component={CartScreen} />
             <Stack.Screen name='SearchScreen' component={SearchScreen} />
             <Stack.Screen name='FinalBill' component={FinalBill} />
