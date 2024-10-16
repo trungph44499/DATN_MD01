@@ -20,145 +20,131 @@
   ],
   "dogs": [
     {
-      "id": "cbbf",
-      "img": "https://petnow.com.vn/wp-content/uploads/2023/12/z4950533038872_3828cf1ef0b8d77dbfd932e0bae0ec23.jpg",
-      "name": "Corgi",
-      "type": "12345678",
-      "price": "120.000.000 ₫",
-      "origin": "VN",
-      "quantity": "1",
-      "description": "dddddddddddddddddddddd"
-    },
-    {
-      "id": "2fb7",
-      "img": "https://petnow.com.vn/wp-content/uploads/2023/08/z4579883521265_d462f8cefd3bf01b3a5f6b6859363b12.jpg",
-      "name": "Golden",
-      "type": "21111111",
-      "price": "2.100.000 ₫",
-      "origin": "VN",
+      "id": "DOG_139717",
+      "type": "Dog",
+      "img": "https://petnow.com.vn/wp-content/uploads/2023/07/PD30607-poodle-teacup-mau-bo-xam-2.jpg",
+      "name": "Corgi 1",
+      "price": "1.480.000 ₫",
+      "origin": "USA",
       "quantity": "2",
-      "description": "saaaaaaaaaaaaa"
+      "description": "Thú cưng 6 tháng tuổi"
     },
     {
-      "id": "0fb9",
-      "img": "https://petnow.com.vn/wp-content/uploads/2023/11/z4914274186013_c5adae3d98acb1bf7f073e5a0b3b2036.jpg",
-      "name": "Poodle",
-      "type": "21111111111",
-      "price": "42.000.000 ₫",
-      "origin": "VN",
-      "quantity": "3",
-      "description": "ssssssss"
-    },
-    {
-      "id": "2a29",
+      "id": "DOG_772781",
+      "type": "Dog",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/12/z4950533038872_3828cf1ef0b8d77dbfd932e0bae0ec23.jpg",
-      "name": "Corigi white",
-      "type": "121112",
-      "price": "2.500.000 ₫",
-      "origin": "Vn",
+      "name": "Corgi 2",
+      "price": "3.200.000 ₫",
+      "origin": "USA",
       "quantity": "3",
-      "description": "sads"
+      "description": "Thú cưng 6 tháng tuổi"
+    },
+    {
+      "id": "DOG_371301",
+      "type": "Dog",
+      "img": "https://petnow.com.vn/wp-content/uploads/2023/08/z4579883521265_d462f8cefd3bf01b3a5f6b6859363b12.jpg",
+      "name": "Corgi 3",
+      "price": "400.000 ₫",
+      "origin": "USA",
+      "quantity": "3",
+      "description": "Thú cưng 6 tháng tuổi"
+    },
+    {
+      "id": "DOG_856410",
+      "type": "Dog",
+      "img": "https://petnow.com.vn/wp-content/uploads/2023/08/z4579883521265_d462f8cefd3bf01b3a5f6b6859363b12.jpg",
+      "name": "Corgi 4",
+      "price": "5.100.000 ₫",
+      "origin": "Korean",
+      "quantity": "2",
+      "description": "Thú cưng 6 tháng tuổi"
     }
   ],
   "cats": [
     {
+      "id": "CAT_068310",
+      "type": "Cat",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/10/z4764619188244_ae52186489d119409f6a1d56808ae9f0.jpg",
-      "name": "Mèo Anh lông ngắn",
-      "type": "1111111111",
-      "price": "2.000.000 ₫",
-      "origin": "VN",
-      "quantity": "2",
-      "description": "aaaaaaaaaaaaaaaa",
-      "id": "02e4"
+      "name": "Mèo Anh 1",
+      "price": "2.200.000 ₫",
+      "origin": "Vietnam",
+      "quantity": "3",
+      "description": "Thú cưng 6 tháng tuổi"
     },
     {
+      "id": "CAT_616936",
+      "type": "Cat",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/07/z4512425570273_254a36ac1c5bbd4fa4e756b955dd4bb9.jpg",
-      "name": "Mèo Anh ",
-      "type": "1232121",
-      "price": "2.000.000 ₫",
-      "origin": "VN",
-      "quantity": "3",
-      "description": "sssssssssssssss",
-      "id": "5945"
-    },
-    {
-      "id": "c0d3",
-      "img": "https://petnow.com.vn/wp-content/uploads/2023/11/z4852108634702_2533263f3457b0944f103a49ee79ba6b-scaled.jpg",
-      "name": "Mèo Anh lông ngắn",
-      "type": "311111111",
-      "price": "15.000.000 ₫",
-      "origin": "VN",
+      "name": "Mèo Anh 3",
+      "price": "470.000 ₫",
+      "origin": "Vn",
       "quantity": "2",
-      "description": "ssssssss"
+      "description": "Thú cưng 6 tháng tuổi"
     },
     {
-      "id": "7acc",
+      "id": "CAT_542465",
+      "type": "Cat",
+      "img": "https://petnow.com.vn/wp-content/uploads/2023/11/z4852108634702_2533263f3457b0944f103a49ee79ba6b-scaled.jpg",
+      "name": "Mèo Anh 2",
+      "price": "2.140.000 ₫",
+      "origin": "USA",
+      "quantity": "4",
+      "description": "Thú cưng 6 tháng tuổi"
+    },
+    {
+      "id": "CAT_710314",
+      "type": "Cat",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/10/z4764623018000_774304fcc68adef25c7e60ada02f8bc3.jpg",
-      "name": "Mèo Anh lông ngắn",
-      "type": "2123111",
-      "price": "2.180.000 ₫",
-      "origin": "VN",
+      "name": "Mèo Anh 4",
+      "price": "2.130.000 ₫",
+      "origin": "China",
       "quantity": "3",
-      "description": "ssssssssssssss"
+      "description": "Thú cưng 6 tháng tuổi"
     }
   ],
   "phukien": [
     {
+      "id": "ACC_291014",
+      "type": "Phụ kiện",
       "img": "https://product.hstatic.net/200000264739/product/thit_say_vien_meo_2_107c6d06f14949939fa3f77c97bedce8_master.jpg",
       "name": "Thịt say viên",
-      "type": "2288 111",
-      "price": "2.100.000 ₫",
-      "origin": "China",
-      "quantity": "10",
-      "description": "Chất lượng tốt, sản phẩm cao cấp",
-      "id": "1"
+      "price": "120.000 ₫",
+      "origin": "Vn",
+      "quantity": "32",
+      "description": "Chất lượng tốt, sản phẩm cao cấp"
     },
     {
-      "id": "cbbf",
+      "id": "ACC_084657",
+      "type": "Phụ kiện",
       "img": "https://product.hstatic.net/200000264739/product/thit_say_vien_cho_2_73509b7421584932a134cee62bf1951d_master.jpg",
-      "name": "Thịt say viên",
-      "type": "12345678",
-      "price": "120.000.000 ₫",
-      "origin": "VN",
-      "quantity": "1",
-      "description": "dddddddddddddddddddddd"
+      "name": "Thịt say viên 2",
+      "price": "210.000 ₫",
+      "origin": "Vn",
+      "quantity": "14",
+      "description": "Chất lượng tốt, sản phẩm cao cấp"
     },
     {
-      "id": "2fb7",
+      "id": "ACC_139172",
+      "type": "Phụ kiện",
       "img": "https://product.hstatic.net/200000264739/product/yem_doumm_5_ac5b91f3d25a479b8b061f943a6c2a33_master.jpg",
       "name": "Yếm dắt phản quang",
-      "type": "21111111",
-      "price": "2.100.000 ₫",
-      "origin": "VN",
-      "quantity": "2",
-      "description": "saaaaaaaaaaaaa"
+      "price": "360.000 ₫",
+      "origin": "China",
+      "quantity": "18",
+      "description": "Chất lượng tốt, sản phẩm cao cấp"
     },
     {
-      "id": "0fb9",
+      "id": "ACC_032843",
+      "type": "Phụ kiện",
       "img": "https://product.hstatic.net/200000264739/product/long_van_chuyen_cho_meo_3f688619347340798f234daed1545b95_master.jpg",
-      "name": "Lồng vận chuyển hàng không chó mèo",
-      "type": "21111111111",
-      "price": "42.000.000 ₫",
-      "origin": "VN",
-      "quantity": "3",
-      "description": "ssssssss"
-    },
-    {
-      "img": "https://product.hstatic.net/200000264739/product/balo_hinh_mat_cuoi_bdf343285e334773a9fa6d0c96783f45_master.jpg",
-      "name": "Balo nắp trong suốt cho chó mèo",
-      "type": "123122111",
+      "name": "Lồng vận chuyển hàng không cho chó mèo",
       "price": "1.000.000 ₫",
-      "origin": "Vn",
-      "quantity": "52",
-      "description": "aaaaaaaaaaaaaaaa",
-      "id": "f10b"
+      "origin": "JP",
+      "quantity": "22",
+      "description": "Chất lượng tốt, sản phẩm cao cấp"
     }
   ],
   "search": [
-    {
-      "id": "bfa5",
-      "txt": "Mèo Anh lông ngắn"
-    },
     {
       "id": "9f22",
       "txt": "Poodle"
@@ -170,113 +156,13 @@
     {
       "id": "dcd0",
       "txt": "Corgi"
+    },
+    {
+      "id": "a4e6",
+      "txt": "Corgi 1"
     }
   ],
-  "carts": [
-    {
-      "id": "d812",
-      "id_bill": "4b37",
-      "id_Product": "1",
-      "soLuongMua": 1,
-      "giaMua": "3.250.000"
-    },
-    {
-      "id": "c3d4",
-      "id_bill": "8264",
-      "id_Product": "3",
-      "soLuongMua": 2,
-      "giaMua": "3.120.000"
-    },
-    {
-      "id": "f75d",
-      "id_bill": "2aed",
-      "id_Product": "1",
-      "soLuongMua": 2,
-      "giaMua": "3.250.000"
-    },
-    {
-      "id": "cc67",
-      "id_bill": "9fae",
-      "id_Product": "6e10",
-      "soLuongMua": 1,
-      "giaMua": "1.200.000 ₫"
-    },
-    {
-      "id": "4df9",
-      "id_bill": "a22f",
-      "id_Product": "1",
-      "soLuongMua": 4,
-      "giaMua": "3.250.000 ₫"
-    },
-    {
-      "id": "1e66",
-      "id_bill": "b81b",
-      "id_Product": "2",
-      "soLuongMua": 1,
-      "giaMua": "2.350.000 ₫"
-    },
-    {
-      "id": "8b21",
-      "id_bill": "b81b",
-      "id_Product": "1",
-      "soLuongMua": 1,
-      "giaMua": "3.250.000 ₫"
-    },
-    {
-      "id": "b784",
-      "id_bill": "b81b",
-      "id_Product": "plt13",
-      "soLuongMua": 1,
-      "giaMua": "4.250.000 ₫"
-    },
-    {
-      "id": "befa",
-      "id_bill": "4724",
-      "id_Product": "plt13",
-      "soLuongMua": 1,
-      "giaMua": "4.250.000 ₫"
-    },
-    {
-      "id": "6435",
-      "id_bill": "8c94",
-      "id_Product": "plt12",
-      "soLuongMua": 1,
-      "giaMua": "1.250.000 ₫"
-    },
-    {
-      "id": "bc0c",
-      "id_bill": "c89b",
-      "id_Product": "2",
-      "soLuongMua": 1,
-      "giaMua": "2.350.000 ₫"
-    },
-    {
-      "id": "f4a3",
-      "id_bill": "013e",
-      "id_Product": "4",
-      "soLuongMua": 3,
-      "giaMua": "2.350.000 ₫"
-    },
-    {
-      "id": "6888",
-      "id_bill": "ae1f",
-      "id_Product": "1",
-      "soLuongMua": 1,
-      "giaMua": "1.400.000₫"
-    }
-  ],
+  "carts": [],
   "notices": [],
-  "hoadons": [
-    {
-      "id_User": "a345",
-      "diaChi": "ha dong",
-      "soDienThoai": "0123456789",
-      "ship": true,
-      "pay": true,
-      "total": 1415000,
-      "status": 0,
-      "ngayMua": "2024-10-13T15:50:32.477Z",
-      "id": "ae1f"
-    }
-  ]
+  "hoadons": []
 }

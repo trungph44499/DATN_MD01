@@ -152,10 +152,10 @@ const Payment2 = ({ navigation, route }) => {
                         <View key={item.id} style={styles.item}>
                             <Image source={{ uri: item.img }} style={styles.image} />
                             <View style={{ padding: 20, justifyContent: 'space-between', gap: 10 }}>
-                                <Text>{item.name}
-                                    <Text style={{ color: 'gray' }}>{'\n'}{item.type}</Text>
-                                    {'\n'}{item.price} đ</Text>
-                                <Text>Số lượng mua : {item.quantity}</Text>
+                                <Text style ={{fontSize: 15, fontWeight: 'bold'}}>{item.name}
+                                    <Text style={{ color: 'gray' }}>{'\n'}{item.id}</Text>
+                                    {'\n'}{item.price}</Text>
+                                <Text style ={{fontSize: 15, fontWeight: 'bold'}}>Số lượng mua : {item.quantity}</Text>
                             </View>
                         </View>
                     ))}

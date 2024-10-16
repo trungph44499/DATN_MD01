@@ -101,7 +101,7 @@ const SearchScreen = ({ navigation }) => {
       console.log(err);
     }
   }
-  
+
   useEffect(() => {
     if (txtSearch == "") {
       setresult(false)
@@ -184,7 +184,7 @@ const SearchScreen = ({ navigation }) => {
                             <View style={{ gap: 5 }}>
                               <Text style={styles.price}>{item.name}</Text>
                               <Text style={{ fontSize: 16, color: '#EB4F26', fontWeight: "800" }}>{item.price} </Text>
-                              <Text style={{ fontSize: 12 }}>{item.type}</Text>
+                              <Text style={{ fontSize: 12 }}>{item.id}.</Text>
                               <Text style={{ fontSize: 12, fontWeight: "600" }}>Còn {item.quantity} sp</Text>
                             </View>
                           </TouchableOpacity>} >
@@ -208,9 +208,9 @@ const SearchScreen = ({ navigation }) => {
                             <Image source={{ uri: item.img }}
                               style={styles.itemImage} />
                             <View style={{ gap: 5 }}>
-                            <Text style={styles.price}>{item.name}</Text>
+                              <Text style={styles.price}>{item.name}</Text>
                               <Text style={{ fontSize: 16, color: '#EB4F26', fontWeight: "800" }}>{item.price} </Text>
-                              <Text style={{ fontSize: 12 }}>{item.type}</Text>
+                              <Text style={{ fontSize: 12 }}>{item.id}</Text>
                               <Text style={{ fontSize: 12, fontWeight: "600" }}>Còn {item.quantity} sp</Text>
                             </View>
                           </TouchableOpacity>} >
@@ -219,7 +219,7 @@ const SearchScreen = ({ navigation }) => {
                     : <View></View>
                 }
 
-{
+                {
                   ListPhuKien.length != 0
                     ?
                     <View style={{ gap: 10 }}>
@@ -236,7 +236,7 @@ const SearchScreen = ({ navigation }) => {
                             <View style={{ gap: 5 }}>
                               <Text style={styles.price}>{item.name}</Text>
                               <Text style={{ fontSize: 16, color: '#EB4F26', fontWeight: "800" }}>{item.price} </Text>
-                              <Text style={{ fontSize: 12 }}>{item.type}</Text>
+                              <Text style={{ fontSize: 12 }}>{item.id}</Text>
                               <Text style={{ fontSize: 12, fontWeight: "600" }}>Còn {item.quantity} sp</Text>
                             </View>
                           </TouchableOpacity>} >

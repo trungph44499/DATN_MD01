@@ -146,7 +146,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemStyle}>ID: {item.type}</Text>
+              <Text style={styles.itemStyle}>Mã SP: {item.id}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
           )}
@@ -169,7 +169,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemStyle}>Mã SP: {item.type}</Text>
+              <Text style={styles.itemStyle}>Mã SP: {item.id}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
 
@@ -191,7 +191,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
               <Text style={styles.itemName}>{item.name}</Text>
-              <Text style={styles.itemStyle}>ID: {item.type}</Text>
+              <Text style={styles.itemStyle}>Mã SP: {item.id}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
           )}

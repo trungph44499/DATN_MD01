@@ -44,7 +44,34 @@ const CatScreen = ({ navigation, route }) => {
     );
 
     const handleDelete = async (id, type) => {
-        let url = type === 'ADIDAS' ? `${URL}/dogs/${id}` : `${URL}/cats/${id}`;
+        Alert.alert(
+            "Xác nhận xóa",
+            "Bạn có chắc chắn muốn xóa sản phẩm này?",
+            [
+                {
+                    text: "Hủy",
+                    style: "cancel"
+                },
+                {
+                    text: "Xóa",
+                    onPress: async () => {
+                        // Gọi hàm xóa ở đây
+                        await deleteProduct(id, type);
+                    }
+                }
+            ]
+        );
+    };
+
+    const deleteProduct = async (id, type) => {
+        console.log("Giá trị type: ", type);
+
+        // Xác định URL dựa trên loại sản phẩm
+        let url =
+            type === 'Dog' ? `${URL}/dogs/${id}` :
+                type === 'Cat' ? `${URL}/cats/${id}` :
+                    type === 'Phụ kiện' ? `${URL}/phukien/${id}` :
+                        `${URL}/default/${id}`; // Giá trị mặc định nếu không khớp
 
         try {
             const response = await fetch(url, {
@@ -93,15 +120,15 @@ const CatScreen = ({ navigation, route }) => {
                         style={styles.itemDog}>
                         <Image source={{ uri: item.img }} style={styles.itemImage} />
                         <Text style={styles.itemName}>{item.name}</Text>
-                        <Text style={styles.itemType}>Mã SP: {item.type}</Text>
+                        <Text style={styles.itemType}>Mã SP: {item.id}</Text>
                         <Text style={styles.price}>{item.price}</Text>
                         {isAdmin && (
                             <View style={styles.adminActions}>
-                                <TouchableOpacity onPress={() => handleEdit(item)}>
-                                    <Text style={styles.editButton}>Sửa</Text>
+                                <TouchableOpacity style={styles.editButton} onPress={() => handleEdit(item)}>
+                                    <Text style={styles.buttonText}>Sửa</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => handleDelete(item.id, item.type)}>
-                                    <Text style={styles.deleteButton}>Xóa</Text>
+                                <TouchableOpacity style={styles.deleteButton} onPress={() => handleDelete(item.id, item.type)}>
+                                    <Text style={styles.buttonText}>Xóa</Text>
                                 </TouchableOpacity>
                             </View>
                         )}
@@ -164,11 +191,24 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
-    editButton: {
-        color: 'blue',
-        marginRight: 10,
-    },
+
     deleteButton: {
-        color: 'red',
+        backgroundColor: '#FF6347', // Màu đỏ tomato
+        padding: 10,
+        borderRadius: 5,
+        alignItems: 'center',
+        elevation: 2, // Hiệu ứng bóng
     },
+    editButton: {
+        backgroundColor: '#539AF7', // Màu đỏ tomato
+        padding: 10,
+        borderRadius: 5,
+        alignItems: 'center',
+        elevation: 2, // Hiệu ứng bóng
+    },
+    buttonText: {
+        color: '#FFFFFF', // Màu chữ trắng
+        fontSize: 16,
+        fontWeight: 'bold'
+    }
 });

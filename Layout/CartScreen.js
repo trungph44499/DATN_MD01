@@ -14,7 +14,7 @@ const CartScreen = ({ navigation }) => {
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        console.log("Cart items: " ,cartItems);
+        console.log("Cart items: ", cartItems);
         calculateTotalPrice();
     }, [cartItems]);
 
@@ -76,7 +76,7 @@ const CartScreen = ({ navigation }) => {
                     <View key={item.id} style={styles.item}>
                         <Image source={{ uri: item.img }} style={styles.image} />
                         <View style={{ padding: 10, justifyContent: 'space-between', gap: 10 }}>
-                            <Text style={{marginBottom: 5}}>{item.name} <Text style={{ color: 'gray' }}>{'\n'}{item.type}</Text>
+                            <Text style={{ marginBottom: 5 , fontWeight: 'bold'}}>{item.name} <Text style={{ color: 'gray' }}>{'\n'}{item.id}</Text>
                                 {'\n'}{item.price} </Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <TouchableOpacity onPress={() => { dispatch(truItem(item)) }}
@@ -94,9 +94,9 @@ const CartScreen = ({ navigation }) => {
                             </View>
 
                             <View>
-                            <Text style={{ color: 'red' }}>
-                                        {formatPrice(parseFloat(item.price) * parseInt(item.quantity, 10) * 1000000)}
-                                    </Text>
+                                <Text style={{ color: 'red' }}>
+                                    {formatPrice(parseFloat(item.price) * parseInt(item.quantity, 10) * 1000000)}
+                                </Text>
                             </View>
                         </View>
                     </View>

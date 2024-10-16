@@ -1,13 +1,14 @@
-import { FlatList, Image, StyleSheet, Text, View, RefreshControl } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View, RefreshControl, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { URL } from './HomeScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const NoticeScreen = ({ navigation }) => {
+const NoticeScreen = ({ navigation, route }) => {
   const [data, setdata] = useState([]);
   const [dataCart, setdataCart] = useState([]);
-  const [dataPl, setdataPl] = useState([]);
-  const [dataPlt, setdataPlt] = useState([]);
+  const [dataDogs, setdataDogs] = useState([]);
+  const [dataCats, setdataCats] = useState([]);
+  const [dataPhuKien, setdataPhuKien] = useState([]);
   const [user, setuser] = useState([]);
   const [loading, setloading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -49,28 +50,38 @@ const NoticeScreen = ({ navigation }) => {
     }
   };
 
-  const getDataPl = async () => {
+  const getDataDog = async () => {
     const url = `${URL}/dogs`;
     const res = await fetch(url);
     if (res.ok) {
       const data = await res.json();
-      setdataPl(data);
+      setdataDogs(data);
     }
   };
 
-  const getDataPlt = async () => {
+  const getDataCat = async () => {
     const url = `${URL}/cats`;
     const res = await fetch(url);
     if (res.ok) {
       const data = await res.json();
-      setdataPlt(data);
+      setdataCats(data);
+    }
+  };
+
+  const getDataPhuKien = async () => {
+    const url = `${URL}/phukien`;
+    const res = await fetch(url);
+    if (res.ok) {
+      const data = await res.json();
+      setdataPhuKien(data);
     }
   };
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      getDataPl();
-      getDataPlt();
+      getDataDog();
+      getDataCat();
+      getDataPhuKien();
       getData();
       getDataCart();
     });
@@ -81,8 +92,9 @@ const NoticeScreen = ({ navigation }) => {
   const onRefresh = async () => {
     setRefreshing(true);
     await retrieveData();
-    await getDataPl();
-    await getDataPlt();
+    await getDataDog();
+    await getDataCat();
+    await getDataPhuKien();
     await getData();
     await getDataCart();
     setRefreshing(false);
@@ -92,7 +104,7 @@ const NoticeScreen = ({ navigation }) => {
     if (price !== undefined && price !== null) {
       return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
     } else {
-      return ""; 
+      return "";
     }
   };
 
@@ -117,23 +129,26 @@ const NoticeScreen = ({ navigation }) => {
       sl += item.soLuongMua;
     }
     const id_pro = Cart[0]?.id_Product;
-    const Dog = dataPl.find(pl => pl.id == id_pro);
+    const Dog = dataDogs.find(dg => dg.id == id_pro);
 
-    const Cat = dataPlt.find(plt => plt.id == id_pro);
+    const Cat = dataCats.find(ct => ct.id == id_pro);
 
-    
+    const PhuKien = dataPhuKien.find(pk => pk.id == id_pro);
+
+
 
     return (
       <View>
         <Text>{formatDate(item.ngayMua)}</Text>
         <View style={styles.item}>
-          <Image source={{ uri: Dog?.img || Cat?.img }} style={styles.image} />
+          <Image source={{ uri: Dog?.img || Cat?.img || PhuKien?.img }} style={styles.image} />
           <View style={{ padding: 20, justifyContent: 'space-between', gap: 10 }}>
             {item.status == 0 ? <Text style={{ color: 'green', fontSize: 16, fontWeight: 'bold' }}>Đặt hàng thành công</Text>
               : <Text style={{ color: 'red', fontSize: 16, fontWeight: 'bold' }}>Đã hủy đơn hàng</Text>}
-            <Text>{Dog?.name || Cat?.name}
-              <Text style={{ color: 'gray' }}>{'\n'}{Dog?.type}
-              </Text></Text>
+            <Text>{Dog?.name || Cat?.name || PhuKien?.name}
+              <Text style={{ color: 'gray' }}>{'\n'}{Dog?.id}
+              </Text>
+            </Text>
             <Text>mua {sl} sản phẩm</Text>
             <Text>Tổng tiền : {formatPrice(item.total)}</Text>
           </View>
@@ -145,6 +160,10 @@ const NoticeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image style={{ width: 20, height: 20 }}
+              source={require('../Image/back.png')} />
+          </TouchableOpacity>
         <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>THÔNG BÁO</Text>
       </View>
 
@@ -153,7 +172,7 @@ const NoticeScreen = ({ navigation }) => {
           <Text style={{ textAlign: 'center' }}>Hiện chưa có thông báo nào cho bạn</Text>
         </View>
         :
-        <FlatList 
+        <FlatList
           showsVerticalScrollIndicator={false}
           data={data.filter(i => i.id_User == user.id)}
           keyExtractor={item => item.id}

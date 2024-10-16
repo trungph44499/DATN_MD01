@@ -10,15 +10,14 @@ const EditScreen = ({ navigation, route }) => {
   const [type, setType] = useState(product.type || '');
   const [img, setImg] = useState(product.img || '');
   const [name, setName] = useState(product.name || '');
-  const [category, setCategory] = useState(product.category || '');
   const [price, setPrice] = useState(product.price || '');
   const [origin, setOrigin] = useState(product.origin || '');
   const [quantity, setQuantity] = useState(product.quantity || '');
   const [description, setDescription] = useState(product.description || '');
 
   const types = [
-    { key: '1', value: 'Dogs' },
-    { key: '2', value: 'Cats' },
+    { key: '1', value: 'Dog' },
+    { key: '2', value: 'Cat' },
     { key: '3', value: 'Phụ kiện' }
   ];
 
@@ -31,9 +30,9 @@ const EditScreen = ({ navigation, route }) => {
     const formattedPrice = formatCurrency(price);
 
     const updatedProduct = {
+      type,
       img,
       name,
-      type,
       price: formattedPrice,
       origin,
       quantity,
@@ -41,11 +40,11 @@ const EditScreen = ({ navigation, route }) => {
     };
 
     let url = '';
-    if (category === 'Dogs') {
+    if (type === 'Dog') {
       url = `${URL}/dogs/${product.id}`;
-    } else if (category === 'Cats') {
+    } else if (type === 'Cat') {
       url = `${URL}/cats/${product.id}`;
-    } else if (category === 'Phụ kiện') {
+    } else if (type === 'Phụ kiện') {
       url = `${URL}/phukien/${product.id}`;
     } else {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
@@ -64,14 +63,14 @@ const EditScreen = ({ navigation, route }) => {
       if (response.ok) {
         const savedProduct = await response.json();
         await AsyncStorage.setItem(`@${type}_${savedProduct.id}`, JSON.stringify(savedProduct));
-        alert('Product edited successfully!');
+        alert('Sửa sản phẩm thành công!');
         navigation.goBack();
       } else {
-        alert('Failed to edit product');
+        alert('Sửa sản phẩm thất bại');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error editing product');
+      alert('Lỗi sửa sản phẩm');
     }
   };
 
@@ -86,7 +85,7 @@ const EditScreen = ({ navigation, route }) => {
         <View style={{ width: '100%', gap: 10, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', justifyContent: 'center', fontSize: 30 }}>Sửa sản phẩm</Text>
           <SelectList
-            setSelected={(val) => setCategory(val)}
+            setSelected={(val) => setType(val)}
             data={types}
             save="value"
             inputStyles={{ width: 310 }}
@@ -94,11 +93,11 @@ const EditScreen = ({ navigation, route }) => {
             search={false}
             placeholder='Loại sản phẩm'
             defaultOption={{
-              key: product.category === 'Dogs' ? '1' :
-                   product.category === 'Cats' ? '2' :
-                   product.category === 'Phụ kiện' ? '3' :
+              key: product.type === 'Dog' ? '1' :
+                   product.type === 'Cat' ? '2' :
+                   product.type === 'Phụ kiện' ? '3' :
                    null, // Giá trị mặc định nếu không khớp
-              value: product.category
+              value: product.type
             }}
           />
           <TextInput
@@ -108,7 +107,7 @@ const EditScreen = ({ navigation, route }) => {
             value={img}
           />
           <TextInput style={styles.input} placeholder='Tên sản phẩm' onChangeText={setName} value={name} />
-          <TextInput style={styles.input} placeholder='Mã sản phẩm' onChangeText={setType} value={type} />
+          {/* <TextInput style={styles.input} placeholder='Mã sản phẩm' onChangeText={setType} value={type} /> */}
           <TextInput style={styles.input} placeholder='Giá' onChangeText={setPrice} value={price} keyboardType='numeric' />
           <TextInput style={styles.input} placeholder='Xuất xứ' onChangeText={setOrigin} value={origin} />
           {/* <SelectList 

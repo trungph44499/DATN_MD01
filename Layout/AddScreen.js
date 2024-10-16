@@ -2,21 +2,21 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, ScrollView 
 import React, { useState } from 'react';
 import { SelectList } from 'react-native-dropdown-select-list';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import shortid from 'shortid';
 import { URL } from './HomeScreen';
 
 const AddScreen = ({ navigation }) => {
   const [type, setType] = useState('');
   const [img, setImg] = useState('');
   const [name, setName] = useState('');
-  const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [origin, setOrigin] = useState('');
   const [quantity, setQuantity] = useState('');
   const [description, setDescription] = useState('');
 
   const types = [
-    { key: '1', value: 'Dogs' },
-    { key: '2', value: 'Cats' },
+    { key: '1', value: 'Dog' },
+    { key: '2', value: 'Cat' },
     { key: '3', value: 'Phụ kiện' }
   ];
 
@@ -24,25 +24,43 @@ const AddScreen = ({ navigation }) => {
     return Number(value).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
   };
 
+  const generateNumericId = () => {
+    const prefix = type === 'Dog' ? 'DOG_' : type === 'Cat' ? 'CAT_' : type === 'Phụ kiện' ? 'ACC_' : '';
+    let randomPart = '';
+
+    // Tạo 6 ký tự số ngẫu nhiên
+    for (let i = 0; i < 6; i++) {
+        randomPart += Math.floor(Math.random() * 10); // Tạo số ngẫu nhiên từ 0 đến 9
+    }
+
+    return `${prefix}${randomPart}`; // Kết hợp tiền tố và phần ngẫu nhiên
+};
+
   const handleAddProduct = async () => {
     const formattedPrice = formatCurrency(price);
 
     const newProduct = {
+      type,
       img,
       name,
-      type,
       price: formattedPrice,
       origin,
       quantity,
       description
     };
 
+    // Tạo ID
+    const productId = generateNumericId();
+
+    // Thêm ID vào sản phẩm
+    newProduct.id = productId;
+
     let url = '';
-    if (category === 'Dogs') {
+    if (type === 'Dog') {
       url = `${URL}/dogs`;
-    } else if (category === 'Cats') {
+    } else if (type === 'Cat') {
       url = `${URL}/cats`;
-    } else if (category === 'Phụ kiện') {
+    } else if (type === 'Phụ kiện') {
       url = `${URL}/phukien`;
     } else {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
@@ -61,14 +79,14 @@ const AddScreen = ({ navigation }) => {
       if (response.ok) {
         const savedProduct = await response.json();
         await AsyncStorage.setItem(`@${type}_${savedProduct.id}`, JSON.stringify(savedProduct));
-        alert('Product added successfully!');
+        alert('Thêm sản phẩm thành công!');
         navigation.goBack();
       } else {
-        alert('Failed to add product');
+        alert('Thêm sản phẩm thất bại');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error adding product');
+      alert('Lỗi thêm sản phẩm');
     }
   };
 
@@ -82,9 +100,9 @@ const AddScreen = ({ navigation }) => {
       <View style={styles.container}>
         <View style={{ width: '100%', gap: 10, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', justifyContent: 'center', fontSize: 30 }}>Thêm sản phẩm</Text>
-          <SelectList 
-            setSelected={(val) => setCategory(val)} 
-            data={types} 
+          <SelectList
+            setSelected={(val) => setType(val)}
+            data={types}
             save="value"
             inputStyles={{ width: 310 }}
             dropdownStyles={{ width: 370 }}
@@ -92,13 +110,13 @@ const AddScreen = ({ navigation }) => {
             placeholder='Loại sản phẩm'
           />
           <TextInput
-              style={styles.input}
-              placeholder='Ảnh URL'
-              onChangeText={setImg}
-              value={img}
+            style={styles.input}
+            placeholder='Ảnh URL'
+            onChangeText={setImg}
+            value={img}
           />
           <TextInput style={styles.input} placeholder='Tên sản phẩm' onChangeText={setName} value={name} />
-          <TextInput style={styles.input} placeholder='Mã sản phẩm' onChangeText={setType} value={type} />
+          {/* <TextInput style={styles.input} placeholder='Mã sản phẩm' onChangeText={setType} value={type} /> */}
           <TextInput style={styles.input} placeholder='Giá' onChangeText={setPrice} value={price} keyboardType='numeric' />
           <TextInput style={styles.input} placeholder='Xuất xứ' onChangeText={setOrigin} value={origin} />
           <TextInput style={styles.input} placeholder='Số lượng' onChangeText={setQuantity} value={quantity} keyboardType='numeric' />
@@ -152,13 +170,13 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#ffff', 
+    shadowColor: '#ffff',
     shadowOffset: {
-        width: -10, 
-        height: 5,
+      width: -10,
+      height: 5,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 50, 
+    shadowRadius: 50,
   },
   image: {
     width: 50,

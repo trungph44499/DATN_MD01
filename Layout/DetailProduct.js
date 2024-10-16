@@ -50,7 +50,7 @@ const DetailProduct = ({ navigation, route }) => {
 
         <View style={{ gap: 16, paddingHorizontal: 40 }}>
           <View style={{ width: 180, padding: 8, borderRadius: 10, backgroundColor: '#825640', alignItems: 'center' }}>
-            <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>{item.type}</Text>
+            <Text style={{ color: 'white', fontSize: 15, fontWeight: 'bold' }}>{item.id}</Text>
           </View>
 
           <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#EB4F26' }}>{item.price} </Text>
