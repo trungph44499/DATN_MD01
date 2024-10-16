@@ -5,28 +5,23 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { URL } from './HomeScreen';
 
 const EditScreen = ({ navigation, route }) => {
-    const product = route.params?.product || {};
-  
-    const [type, setType] = useState(product.type || '');
-    const [img, setImg] = useState(product.img || '');
-    const [name, setName] = useState(product.name || '');
-    const [category, setCategory] = useState(product.category || '');
-    const [price, setPrice] = useState(product.price || '');
-    const [origin, setOrigin] = useState(product.origin || '');
-    const [size, setSize] = useState(product.size || '');
-    const [quantity, setQuantity] = useState(product.quantity || '');
-    const [description, setDescription] = useState(product.description || '');
+  const product = route.params?.product || {};
 
-    const types = [
-        { key: '1', value: 'ADIDAS' },
-        { key: '2', value: 'Nike' }
-    ];
+  const [type, setType] = useState(product.type || '');
+  const [img, setImg] = useState(product.img || '');
+  const [name, setName] = useState(product.name || '');
+  const [category, setCategory] = useState(product.category || '');
+  const [price, setPrice] = useState(product.price || '');
+  const [origin, setOrigin] = useState(product.origin || '');
+  const [quantity, setQuantity] = useState(product.quantity || '');
+  const [description, setDescription] = useState(product.description || '');
 
-    const sizes = [
-        { key: '1', value: 'Big' },
-        { key: '2', value: 'Medium' },
-        { key: '3', value: 'Small' }
-    ];
+  const types = [
+    { key: '1', value: 'Dogs' },
+    { key: '2', value: 'Cats' },
+    { key: '3', value: 'Phụ kiện' }
+  ];
+
 
   const formatCurrency = (value) => {
     return Number(value.replace(/[^0-9.-]+/g, "")).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -41,16 +36,17 @@ const EditScreen = ({ navigation, route }) => {
       type,
       price: formattedPrice,
       origin,
-      size,
       quantity,
       description
     };
 
     let url = '';
-    if (category === 'Nike') {
+    if (category === 'Dogs') {
       url = `${URL}/dogs/${product.id}`;
-    } else if (category === 'ADIDAS') {
+    } else if (category === 'Cats') {
       url = `${URL}/cats/${product.id}`;
+    } else if (category === 'Phụ kiện') {
+      url = `${URL}/phukien/${product.id}`;
     } else {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
       return;
@@ -58,7 +54,7 @@ const EditScreen = ({ navigation, route }) => {
 
     try {
       const response = await fetch(url, {
-        method: 'PUT', 
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -89,15 +85,21 @@ const EditScreen = ({ navigation, route }) => {
       <View style={styles.container}>
         <View style={{ width: '100%', gap: 10, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', justifyContent: 'center', fontSize: 30 }}>Sửa sản phẩm</Text>
-          <SelectList 
-            setSelected={(val) => setCategory(val)} 
-            data={types} 
+          <SelectList
+            setSelected={(val) => setCategory(val)}
+            data={types}
             save="value"
             inputStyles={{ width: 310 }}
             dropdownStyles={{ width: 370 }}
             search={false}
             placeholder='Loại sản phẩm'
-            defaultOption={{ key: product.category === 'Nike' ? '1' : '2', value: product.category }}
+            defaultOption={{
+              key: product.category === 'Dogs' ? '1' :
+                   product.category === 'Cats' ? '2' :
+                   product.category === 'Phụ kiện' ? '3' :
+                   null, // Giá trị mặc định nếu không khớp
+              value: product.category
+            }}
           />
           <TextInput
             style={styles.input}
@@ -109,7 +111,7 @@ const EditScreen = ({ navigation, route }) => {
           <TextInput style={styles.input} placeholder='Mã sản phẩm' onChangeText={setType} value={type} />
           <TextInput style={styles.input} placeholder='Giá' onChangeText={setPrice} value={price} keyboardType='numeric' />
           <TextInput style={styles.input} placeholder='Xuất xứ' onChangeText={setOrigin} value={origin} />
-          <SelectList 
+          {/* <SelectList 
             setSelected={(val) => setSize(val)} 
             data={sizes} 
             save="value"
@@ -118,7 +120,7 @@ const EditScreen = ({ navigation, route }) => {
             search={false}
             placeholder='Kích cỡ'
             defaultOption={{ key: sizes.find(size => size.value === product.size)?.key, value: product.size }}
-          />
+          /> */}
           <TextInput style={styles.input} placeholder='Số lượng' onChangeText={setQuantity} value={quantity} keyboardType='numeric' />
           <TextInput style={styles.inputDes} placeholder='Nhận xét' onChangeText={setDescription} value={description} multiline={true} numberOfLines={4} />
           <TouchableOpacity style={styles.btn} onPress={handleEditProduct}>
@@ -170,13 +172,13 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#ffff', 
+    shadowColor: '#ffff',
     shadowOffset: {
-        width: -10, 
-        height: 5,
+      width: -10,
+      height: 5,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 50, 
+    shadowRadius: 50,
   },
   image: {
     width: 50,

@@ -20,24 +20,12 @@
   ],
   "dogs": [
     {
-      "img": "https://petnow.com.vn/wp-content/uploads/2023/07/PD30607-poodle-teacup-mau-bo-xam-2.jpg",
-      "name": "Corgi",
-      "type": "2288 111",
-      "price": "1.400.000₫",
-      "origin": "China",
-      "size": "3",
-      "quantity": "10",
-      "description": "Chất lượng tốt, sản phẩm cao cấp",
-      "id": "1"
-    },
-    {
       "id": "cbbf",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/12/z4950533038872_3828cf1ef0b8d77dbfd932e0bae0ec23.jpg",
       "name": "Corgi",
       "type": "12345678",
       "price": "120.000.000 ₫",
       "origin": "VN",
-      "size": "Big",
       "quantity": "1",
       "description": "dddddddddddddddddddddd"
     },
@@ -48,7 +36,6 @@
       "type": "21111111",
       "price": "2.100.000 ₫",
       "origin": "VN",
-      "size": "Medium",
       "quantity": "2",
       "description": "saaaaaaaaaaaaa"
     },
@@ -59,33 +46,40 @@
       "type": "21111111111",
       "price": "42.000.000 ₫",
       "origin": "VN",
-      "size": "Small",
       "quantity": "3",
       "description": "ssssssss"
+    },
+    {
+      "id": "2a29",
+      "img": "https://petnow.com.vn/wp-content/uploads/2023/12/z4950533038872_3828cf1ef0b8d77dbfd932e0bae0ec23.jpg",
+      "name": "Corigi white",
+      "type": "121112",
+      "price": "2.500.000 ₫",
+      "origin": "Vn",
+      "quantity": "3",
+      "description": "sads"
     }
   ],
   "cats": [
     {
-      "id": "02e4",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/10/z4764619188244_ae52186489d119409f6a1d56808ae9f0.jpg",
       "name": "Mèo Anh lông ngắn",
       "type": "1111111111",
-      "price": "1.800.000 ₫",
+      "price": "2.000.000 ₫",
       "origin": "VN",
-      "size": "Medium",
       "quantity": "2",
-      "description": "aaaaaaaaaaaaaaaa"
+      "description": "aaaaaaaaaaaaaaaa",
+      "id": "02e4"
     },
     {
-      "id": "5945",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/07/z4512425570273_254a36ac1c5bbd4fa4e756b955dd4bb9.jpg",
-      "name": "Mèo Anh lông ngắn",
+      "name": "Mèo Anh ",
       "type": "1232121",
       "price": "2.000.000 ₫",
       "origin": "VN",
-      "size": "Big",
       "quantity": "3",
-      "description": "sssssssssssssss"
+      "description": "sssssssssssssss",
+      "id": "5945"
     },
     {
       "id": "c0d3",
@@ -94,7 +88,6 @@
       "type": "311111111",
       "price": "15.000.000 ₫",
       "origin": "VN",
-      "size": "Big",
       "quantity": "2",
       "description": "ssssssss"
     },
@@ -105,7 +98,6 @@
       "type": "2123111",
       "price": "2.180.000 ₫",
       "origin": "VN",
-      "size": "Medium",
       "quantity": "3",
       "description": "ssssssssssssss"
     }
@@ -115,9 +107,8 @@
       "img": "https://product.hstatic.net/200000264739/product/thit_say_vien_meo_2_107c6d06f14949939fa3f77c97bedce8_master.jpg",
       "name": "Thịt say viên",
       "type": "2288 111",
-      "price": "1.400.000₫",
+      "price": "2.100.000 ₫",
       "origin": "China",
-      "size": "3",
       "quantity": "10",
       "description": "Chất lượng tốt, sản phẩm cao cấp",
       "id": "1"
@@ -129,7 +120,6 @@
       "type": "12345678",
       "price": "120.000.000 ₫",
       "origin": "VN",
-      "size": "Big",
       "quantity": "1",
       "description": "dddddddddddddddddddddd"
     },
@@ -140,7 +130,6 @@
       "type": "21111111",
       "price": "2.100.000 ₫",
       "origin": "VN",
-      "size": "Medium",
       "quantity": "2",
       "description": "saaaaaaaaaaaaa"
     },
@@ -151,9 +140,18 @@
       "type": "21111111111",
       "price": "42.000.000 ₫",
       "origin": "VN",
-      "size": "Small",
       "quantity": "3",
       "description": "ssssssss"
+    },
+    {
+      "img": "https://product.hstatic.net/200000264739/product/balo_hinh_mat_cuoi_bdf343285e334773a9fa6d0c96783f45_master.jpg",
+      "name": "Balo nắp trong suốt cho chó mèo",
+      "type": "123122111",
+      "price": "1.000.000 ₫",
+      "origin": "Vn",
+      "quantity": "52",
+      "description": "aaaaaaaaaaaaaaaa",
+      "id": "f10b"
     }
   ],
   "search": [

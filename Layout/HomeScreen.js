@@ -2,7 +2,7 @@ import { Alert, FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, Tou
 import React, { useEffect, useState, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const URL = 'http://192.168.1.29:3000';
+export const URL = 'http://192.168.1.3:3000';
 const { width: screenWidth } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation }) => {

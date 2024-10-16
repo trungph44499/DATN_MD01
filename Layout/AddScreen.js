@@ -11,19 +11,13 @@ const AddScreen = ({ navigation }) => {
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [origin, setOrigin] = useState('');
-  const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState('');
   const [description, setDescription] = useState('');
 
   const types = [
-    { key: '1', value: 'ADIDAS' },
-    { key: '2', value: 'Nike' }
-  ];
-
-  const sizes = [
-    { key: '1', value: 'Big' },
-    { key: '2', value: 'Medium' },
-    { key: '3', value: 'Small' }
+    { key: '1', value: 'Dogs' },
+    { key: '2', value: 'Cats' },
+    { key: '3', value: 'Phụ kiện' }
   ];
 
   const formatCurrency = (value) => {
@@ -39,16 +33,17 @@ const AddScreen = ({ navigation }) => {
       type,
       price: formattedPrice,
       origin,
-      size,
       quantity,
       description
     };
 
     let url = '';
-    if (category === 'Nike') {
+    if (category === 'Dogs') {
       url = `${URL}/dogs`;
-    } else if (category === 'ADIDAS') {
+    } else if (category === 'Cats') {
       url = `${URL}/cats`;
+    } else if (category === 'Phụ kiện') {
+      url = `${URL}/phukien`;
     } else {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
       return;
@@ -106,15 +101,6 @@ const AddScreen = ({ navigation }) => {
           <TextInput style={styles.input} placeholder='Mã sản phẩm' onChangeText={setType} value={type} />
           <TextInput style={styles.input} placeholder='Giá' onChangeText={setPrice} value={price} keyboardType='numeric' />
           <TextInput style={styles.input} placeholder='Xuất xứ' onChangeText={setOrigin} value={origin} />
-          <SelectList 
-            setSelected={(val) => setSize(val)} 
-            data={sizes} 
-            save="value"
-            inputStyles={{ width: 310 }}
-            dropdownStyles={{ width: 370 }}
-            search={false}
-            placeholder='Kích cỡ'
-          />
           <TextInput style={styles.input} placeholder='Số lượng' onChangeText={setQuantity} value={quantity} keyboardType='numeric' />
           <TextInput style={styles.inputDes} placeholder='Nhận xét' onChangeText={setDescription} value={description} multiline={true} numberOfLines={4} />
           <TouchableOpacity style={styles.btn} onPress={handleAddProduct}>

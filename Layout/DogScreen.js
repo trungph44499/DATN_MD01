@@ -83,7 +83,7 @@ const DogScreen = ({ navigation, route }) => {
                 <Text>Hàng mới về</Text>
                 <Text>Hàng Sale</Text>
             </View>
-            
+
             <FlatList
                 numColumns={2}
                 data={data}
