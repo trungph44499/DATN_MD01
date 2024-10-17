@@ -20,14 +20,14 @@
   ],
   "dogs": [
     {
-      "id": "DOG_139717",
       "type": "Dog",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/07/PD30607-poodle-teacup-mau-bo-xam-2.jpg",
       "name": "Corgi 1",
-      "price": "1.480.000 ₫",
+      "price": "3.280.000 ₫",
       "origin": "USA",
       "quantity": "2",
-      "description": "Thú cưng 6 tháng tuổi"
+      "description": "Thú cưng 6 tháng tuổi",
+      "id": "DOG_139717"
     },
     {
       "id": "DOG_772781",
@@ -104,14 +104,14 @@
   ],
   "phukien": [
     {
-      "id": "ACC_291014",
       "type": "Phụ kiện",
       "img": "https://product.hstatic.net/200000264739/product/thit_say_vien_meo_2_107c6d06f14949939fa3f77c97bedce8_master.jpg",
       "name": "Thịt say viên",
-      "price": "120.000 ₫",
+      "price": "24.000.000 ₫",
       "origin": "Vn",
       "quantity": "32",
-      "description": "Chất lượng tốt, sản phẩm cao cấp"
+      "description": "Chất lượng tốt, sản phẩm cao cấp",
+      "id": "ACC_291014"
     },
     {
       "id": "ACC_084657",

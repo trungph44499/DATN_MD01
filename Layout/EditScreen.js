@@ -84,7 +84,7 @@ const EditScreen = ({ navigation, route }) => {
       <View style={styles.container}>
         <View style={{ width: '100%', gap: 10, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontWeight: 'bold', textAlign: 'center', justifyContent: 'center', fontSize: 30 }}>Sửa sản phẩm</Text>
-          <SelectList
+          {/* <SelectList
             setSelected={(val) => setType(val)}
             data={types}
             save="value"
@@ -94,12 +94,13 @@ const EditScreen = ({ navigation, route }) => {
             placeholder='Loại sản phẩm'
             defaultOption={{
               key: product.type === 'Dog' ? '1' :
-                   product.type === 'Cat' ? '2' :
-                   product.type === 'Phụ kiện' ? '3' :
-                   null, // Giá trị mặc định nếu không khớp
+                product.type === 'Cat' ? '2' :
+                  product.type === 'Phụ kiện' ? '3' :
+                    null, // Giá trị mặc định nếu không khớp
               value: product.type
             }}
-          />
+          /> */}
+          <TextInput style={[styles.inputEdt, {fontWeight: 'bold', color: 'black'}]} editable={false} onChangeText={setType} value={type} />
           <TextInput
             style={styles.input}
             placeholder='Ảnh URL'
@@ -148,6 +149,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   input: {
+    borderRadius: 10,
+    borderWidth: 1,
+    padding: 15,
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  inputEdt: {
     borderRadius: 10,
     borderWidth: 1,
     padding: 15,
