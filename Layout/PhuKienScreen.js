@@ -65,13 +65,13 @@ const PhuKienScreen = ({ navigation, route }) => {
 
     const deleteProduct = async (id, type) => {
         console.log("Giá trị type: ", type);
-    
+
         // Xác định URL dựa trên loại sản phẩm
         let url =
             type === 'Dog' ? `${URL}/dogs/${id}` :
-            type === 'Cat' ? `${URL}/cats/${id}` :
-            type === 'Phụ kiện' ? `${URL}/phukien/${id}` :
-            `${URL}/default/${id}`; // Giá trị mặc định nếu không khớp
+                type === 'Cat' ? `${URL}/cats/${id}` :
+                    type === 'Phụ kiện' ? `${URL}/phukien/${id}` :
+                        `${URL}/default/${id}`; // Giá trị mặc định nếu không khớp
 
         try {
             const response = await fetch(url, {
@@ -88,7 +88,7 @@ const PhuKienScreen = ({ navigation, route }) => {
             Alert.alert('Lỗi', 'Không thể xóa sản phẩm');
         }
     };
-    
+
     const handleEdit = (item) => {
         navigation.navigate('EditScreen', { product: item });
     };
@@ -108,9 +108,9 @@ const PhuKienScreen = ({ navigation, route }) => {
             <View style={{ flexDirection: 'row', gap: 30, marginHorizontal: 20 }}>
                 <Text style={{ color: 'red' }}>Tất cả</Text>
                 <Text>Hàng mới về</Text>
-                <Text>Hàng Sale</Text>
-            </View>
             
+            </View>
+
             <FlatList
                 numColumns={2}
                 data={data}
@@ -119,7 +119,14 @@ const PhuKienScreen = ({ navigation, route }) => {
                     <TouchableOpacity onPress={() => navigation.navigate("DetailProduct", { item: item })}
                         style={styles.itemDog}>
                         <Image source={{ uri: item.img }} style={styles.itemImage} />
-                        <Text style={styles.itemName}>{item.name}</Text>
+                        <View style={styles.itemRow}>
+                            <Text style={styles.itemName}>
+                                {item.name}
+                                {item.status === 'New' && (
+                                    <Text style={styles.itemStatus}>   {item.status}</Text>
+                                )}
+                            </Text>
+                        </View>
                         <Text style={styles.itemType}>Mã SP: {item.id}</Text>
                         <Text style={styles.price}>{item.price}</Text>
                         {isAdmin && (
@@ -178,6 +185,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
+    itemStatus: {
+        fontSize: 18,
+        fontStyle: 'italic',
+        color: 'green'
+      },
+      itemRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
     itemType: {
         fontSize: 13,
         fontWeight: '300',

@@ -40,7 +40,7 @@ const HomeScreen = ({ navigation }) => {
       })
       .catch(err => console.log(err));
   };
-  
+
   useEffect(() => {
     const data = [
       {
@@ -73,14 +73,14 @@ const HomeScreen = ({ navigation }) => {
   }, [navigation]);
 
   const handleScroll = (e) => {
-    if(!e) {
+    if (!e) {
       return;
     }
-    const {nativeEvent} = e;
-    if(nativeEvent && nativeEvent.contenOffset) {
+    const { nativeEvent } = e;
+    if (nativeEvent && nativeEvent.contenOffset) {
       const currentOffset = nativeEvent.contenOffset.x;
       let imageIndex = 0;
-      if(nativeEvent.contenOffset.x > 0 ) {
+      if (nativeEvent.contenOffset.x > 0) {
         imageIndex = Math.floor((nativeEvent.contenOffset.x + screenWidth / 2) / screenWidth);
       }
       setcurrentImage(imageIndex);
@@ -145,7 +145,14 @@ const HomeScreen = ({ navigation }) => {
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
-              <Text style={styles.itemName}>{item.name}</Text>
+              <View style={styles.itemRow}>
+                <Text style={styles.itemName}>
+                  {item.name}
+                  {item.status === 'New' && (
+                    <Text style={styles.itemStatus}>   {item.status}</Text>
+                  )}
+                </Text>
+              </View>
               <Text style={styles.itemStyle}>Mã SP: {item.id}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
@@ -168,7 +175,14 @@ const HomeScreen = ({ navigation }) => {
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
-              <Text style={styles.itemName}>{item.name}</Text>
+              <View style={styles.itemRow}>
+                <Text style={styles.itemName}>
+                  {item.name}
+                  {item.status === 'New' && (
+                    <Text style={styles.itemStatus}>   {item.status}</Text>
+                  )}
+                </Text>
+              </View>
               <Text style={styles.itemStyle}>Mã SP: {item.id}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
@@ -190,7 +204,14 @@ const HomeScreen = ({ navigation }) => {
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate('DetailProduct', { item: item })} style={styles.itemDog}>
               <Image source={{ uri: item.img }} style={styles.itemImage} />
-              <Text style={styles.itemName}>{item.name}</Text>
+              <View style={styles.itemRow}>
+                <Text style={styles.itemName}>
+                  {item.name}
+                  {item.status === 'New' && (
+                    <Text style={styles.itemStatus}>   {item.status}</Text>
+                  )}
+                </Text>
+              </View>
               <Text style={styles.itemStyle}>Mã SP: {item.id}</Text>
               <Text style={styles.price}>{item.price} </Text>
             </TouchableOpacity>
@@ -254,6 +275,16 @@ const styles = StyleSheet.create({
   itemName: {
     fontSize: 18,
     fontWeight: 'bold',
+
+  },
+  itemStatus: {
+    fontSize: 18,
+    fontStyle: 'italic',
+    color: 'green'
+  },
+  itemRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   itemStyle: {
     fontSize: 13,

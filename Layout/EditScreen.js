@@ -13,14 +13,19 @@ const EditScreen = ({ navigation, route }) => {
   const [price, setPrice] = useState(product.price || '');
   const [origin, setOrigin] = useState(product.origin || '');
   const [quantity, setQuantity] = useState(product.quantity || '');
+  const [status, setStatus] = useState(product.status || '');
   const [description, setDescription] = useState(product.description || '');
 
-  const types = [
-    { key: '1', value: 'Dog' },
-    { key: '2', value: 'Cat' },
-    { key: '3', value: 'Phụ kiện' }
-  ];
+  // const types = [
+  //   { key: '1', value: 'Dog' },
+  //   { key: '2', value: 'Cat' },
+  //   { key: '3', value: 'Phụ kiện' }
+  // ];
 
+  const statuss = [
+    { key: '1', value: 'New' },
+    { key: '2', value: 'Old' },
+  ];
 
   const formatCurrency = (value) => {
     return Number(value.replace(/[^0-9.-]+/g, "")).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -36,6 +41,7 @@ const EditScreen = ({ navigation, route }) => {
       price: formattedPrice,
       origin,
       quantity,
+      status,
       description
     };
 
@@ -122,6 +128,15 @@ const EditScreen = ({ navigation, route }) => {
             defaultOption={{ key: sizes.find(size => size.value === product.size)?.key, value: product.size }}
           /> */}
           <TextInput style={styles.input} placeholder='Số lượng' onChangeText={setQuantity} value={quantity} keyboardType='numeric' />
+          <SelectList
+            setSelected={(val) => setStatus(val)}
+            data={statuss}
+            save="value"
+            inputStyles={{ width: 310 }}
+            dropdownStyles={{ width: 370 }}
+            search={false}
+            placeholder='Trạng thái sản phẩm'
+          />
           <TextInput style={styles.inputDes} placeholder='Nhận xét' onChangeText={setDescription} value={description} multiline={true} numberOfLines={4} />
           <TouchableOpacity style={styles.btn} onPress={handleEditProduct}>
             <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white' }}>Sửa</Text>

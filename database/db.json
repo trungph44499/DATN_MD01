@@ -26,28 +26,31 @@
       "price": "3.280.000 ₫",
       "origin": "USA",
       "quantity": "2",
+      "status": "New",
       "description": "Thú cưng 6 tháng tuổi",
       "id": "DOG_139717"
     },
     {
-      "id": "DOG_772781",
       "type": "Dog",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/12/z4950533038872_3828cf1ef0b8d77dbfd932e0bae0ec23.jpg",
       "name": "Corgi 2",
-      "price": "3.200.000 ₫",
+      "price": "4.250.000 ₫",
       "origin": "USA",
       "quantity": "3",
-      "description": "Thú cưng 6 tháng tuổi"
+      "status": "New",
+      "description": "Thú cưng 6 tháng tuổi",
+      "id": "DOG_772781"
     },
     {
-      "id": "DOG_371301",
       "type": "Dog",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/08/z4579883521265_d462f8cefd3bf01b3a5f6b6859363b12.jpg",
       "name": "Corgi 3",
-      "price": "400.000 ₫",
+      "price": "6.800.000 ₫",
       "origin": "USA",
       "quantity": "3",
-      "description": "Thú cưng 6 tháng tuổi"
+      "status": "Old",
+      "description": "Thú cưng 6 tháng tuổi",
+      "id": "DOG_371301"
     },
     {
       "id": "DOG_856410",
@@ -57,6 +60,7 @@
       "price": "5.100.000 ₫",
       "origin": "Korean",
       "quantity": "2",
+      "status": "New",
       "description": "Thú cưng 6 tháng tuổi"
     }
   ],
@@ -69,17 +73,19 @@
       "price": "2.200.000 ₫",
       "origin": "Vietnam",
       "quantity": "3",
+      "status": "New",
       "description": "Thú cưng 6 tháng tuổi"
     },
     {
-      "id": "CAT_616936",
       "type": "Cat",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/07/z4512425570273_254a36ac1c5bbd4fa4e756b955dd4bb9.jpg",
       "name": "Mèo Anh 3",
-      "price": "470.000 ₫",
+      "price": "4.180.000 ₫",
       "origin": "Vn",
       "quantity": "2",
-      "description": "Thú cưng 6 tháng tuổi"
+      "status": "Old",
+      "description": "Thú cưng 6 tháng tuổi",
+      "id": "CAT_616936"
     },
     {
       "id": "CAT_542465",
@@ -89,17 +95,19 @@
       "price": "2.140.000 ₫",
       "origin": "USA",
       "quantity": "4",
+      "status": "New",
       "description": "Thú cưng 6 tháng tuổi"
     },
     {
-      "id": "CAT_710314",
       "type": "Cat",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/10/z4764623018000_774304fcc68adef25c7e60ada02f8bc3.jpg",
       "name": "Mèo Anh 4",
-      "price": "2.130.000 ₫",
-      "origin": "China",
+      "price": "618.000 ₫",
+      "origin": "Vn",
       "quantity": "3",
-      "description": "Thú cưng 6 tháng tuổi"
+      "status": "New",
+      "description": "Thú cưng 6 tháng tuổi",
+      "id": "CAT_491972"
     }
   ],
   "phukien": [
@@ -110,6 +118,7 @@
       "price": "24.000.000 ₫",
       "origin": "Vn",
       "quantity": "32",
+      "status": "New",
       "description": "Chất lượng tốt, sản phẩm cao cấp",
       "id": "ACC_291014"
     },
@@ -121,6 +130,7 @@
       "price": "210.000 ₫",
       "origin": "Vn",
       "quantity": "14",
+      "status": "New",
       "description": "Chất lượng tốt, sản phẩm cao cấp"
     },
     {
@@ -131,6 +141,7 @@
       "price": "360.000 ₫",
       "origin": "China",
       "quantity": "18",
+      "status": "New",
       "description": "Chất lượng tốt, sản phẩm cao cấp"
     },
     {
@@ -141,6 +152,7 @@
       "price": "1.000.000 ₫",
       "origin": "JP",
       "quantity": "22",
+      "status": "New",
       "description": "Chất lượng tốt, sản phẩm cao cấp"
     }
   ],

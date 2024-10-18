@@ -12,12 +12,18 @@ const AddScreen = ({ navigation }) => {
   const [price, setPrice] = useState('');
   const [origin, setOrigin] = useState('');
   const [quantity, setQuantity] = useState('');
+  const [status, setStatus] = useState('');
   const [description, setDescription] = useState('');
 
   const types = [
     { key: '1', value: 'Dog' },
     { key: '2', value: 'Cat' },
     { key: '3', value: 'Phụ kiện' }
+  ];
+
+  const statuss = [
+    { key: '1', value: 'New' },
+    { key: '2', value: 'Old' },
   ];
 
   const formatCurrency = (value) => {
@@ -46,6 +52,7 @@ const AddScreen = ({ navigation }) => {
       price: formattedPrice,
       origin,
       quantity,
+      status,
       description
     };
 
@@ -120,6 +127,15 @@ const AddScreen = ({ navigation }) => {
           <TextInput style={styles.input} placeholder='Giá' onChangeText={setPrice} value={price} keyboardType='numeric' />
           <TextInput style={styles.input} placeholder='Xuất xứ' onChangeText={setOrigin} value={origin} />
           <TextInput style={styles.input} placeholder='Số lượng' onChangeText={setQuantity} value={quantity} keyboardType='numeric' />
+          <SelectList
+            setSelected={(val) => setStatus(val)}
+            data={statuss}
+            save="value"
+            inputStyles={{ width: 310 }}
+            dropdownStyles={{ width: 370 }}
+            search={false}
+            placeholder='Trạng thái sản phẩm'
+          />
           <TextInput style={styles.inputDes} placeholder='Nhận xét' onChangeText={setDescription} value={description} multiline={true} numberOfLines={4} />
           <TouchableOpacity style={styles.btn} onPress={handleAddProduct}>
             <Text style={{ fontWeight: 'bold', fontSize: 15, color: 'white' }}>Thêm</Text>

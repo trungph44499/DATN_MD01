@@ -92,6 +92,7 @@ const DogScreen = ({ navigation, route }) => {
     const handleEdit = (item) => {
         navigation.navigate('EditScreen', { product: item });
     };
+    
 
     return (
         <View style={styles.container}>
@@ -108,7 +109,6 @@ const DogScreen = ({ navigation, route }) => {
             <View style={{ flexDirection: 'row', gap: 30, marginHorizontal: 20 }}>
                 <Text style={{ color: 'red' }}>Tất cả</Text>
                 <Text>Hàng mới về</Text>
-                <Text>Hàng Sale</Text>
             </View>
 
             <FlatList
@@ -119,7 +119,14 @@ const DogScreen = ({ navigation, route }) => {
                     <TouchableOpacity onPress={() => navigation.navigate("DetailProduct", { item: item })}
                         style={styles.itemDog}>
                         <Image source={{ uri: item.img }} style={styles.itemImage} />
-                        <Text style={styles.itemName}>{item.name}</Text>
+                        <View style={styles.itemRow}>
+                            <Text style={styles.itemName}>
+                                {item.name}
+                                {item.status === 'New' && (
+                                    <Text style={styles.itemStatus}>   {item.status}</Text>
+                                )}
+                            </Text>
+                        </View>
                         <Text style={styles.itemType}>Mã SP: {item.id}</Text>
                         <Text style={styles.price}>{item.price}</Text>
                         {isAdmin && (
@@ -178,6 +185,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold'
     },
+    itemStatus: {
+        fontSize: 18,
+        fontStyle: 'italic',
+        color: 'green'
+      },
+      itemRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
     itemType: {
         fontSize: 13,
         fontWeight: '300',
