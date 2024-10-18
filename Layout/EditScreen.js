@@ -56,6 +56,35 @@ const EditScreen = ({ navigation, route }) => {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
       return;
     }
+    
+    if (img === '') {
+      alert('Ảnh sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(name === '') {
+      alert('Tên sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(price === '') {
+      alert('Giá sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(origin === '') {
+      alert('Xuất sứ sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(quantity === '') {
+      alert('Số lượng sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(status === '') {
+      alert('Trạng thái sản phẩm không được bỏ trống');
+      return;
+    }
+    if(description === '') {
+      alert('Mô tả sản phẩm không được bỏ trống');
+      return;
+    }
 
     try {
       const response = await fetch(url, {
@@ -106,7 +135,7 @@ const EditScreen = ({ navigation, route }) => {
               value: product.type
             }}
           /> */}
-          <TextInput style={[styles.inputEdt, {fontWeight: 'bold', color: 'black'}]} editable={false} onChangeText={setType} value={type} />
+          <TextInput style={[styles.inputEdt, { fontWeight: 'bold', color: 'black' }]} editable={false} onChangeText={setType} value={type} />
           <TextInput
             style={styles.input}
             placeholder='Ảnh URL'

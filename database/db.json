@@ -34,7 +34,7 @@
       "type": "Dog",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/12/z4950533038872_3828cf1ef0b8d77dbfd932e0bae0ec23.jpg",
       "name": "Corgi 2",
-      "price": "4.250.000 ₫",
+      "price": "33.333.300 ₫",
       "origin": "USA",
       "quantity": "3",
       "status": "New",
@@ -45,7 +45,7 @@
       "type": "Dog",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/08/z4579883521265_d462f8cefd3bf01b3a5f6b6859363b12.jpg",
       "name": "Corgi 3",
-      "price": "6.800.000 ₫",
+      "price": "1.250.000 ₫",
       "origin": "USA",
       "quantity": "3",
       "status": "Old",
@@ -88,15 +88,15 @@
       "id": "CAT_616936"
     },
     {
-      "id": "CAT_542465",
       "type": "Cat",
       "img": "https://petnow.com.vn/wp-content/uploads/2023/11/z4852108634702_2533263f3457b0944f103a49ee79ba6b-scaled.jpg",
       "name": "Mèo Anh 2",
-      "price": "2.140.000 ₫",
-      "origin": "USA",
-      "quantity": "4",
+      "price": "3.800.000 ₫",
+      "origin": "V",
+      "quantity": "6",
       "status": "New",
-      "description": "Thú cưng 6 tháng tuổi"
+      "description": "Thú cưng 6 tháng tuổi",
+      "id": "CAT_542465"
     },
     {
       "type": "Cat",
@@ -115,10 +115,10 @@
       "type": "Phụ kiện",
       "img": "https://product.hstatic.net/200000264739/product/thit_say_vien_meo_2_107c6d06f14949939fa3f77c97bedce8_master.jpg",
       "name": "Thịt say viên",
-      "price": "24.000.000 ₫",
+      "price": "680.000 ₫",
       "origin": "Vn",
       "quantity": "32",
-      "status": "New",
+      "status": "Old",
       "description": "Chất lượng tốt, sản phẩm cao cấp",
       "id": "ACC_291014"
     },

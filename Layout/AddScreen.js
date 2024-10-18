@@ -36,11 +36,11 @@ const AddScreen = ({ navigation }) => {
 
     // Tạo 6 ký tự số ngẫu nhiên
     for (let i = 0; i < 6; i++) {
-        randomPart += Math.floor(Math.random() * 10); // Tạo số ngẫu nhiên từ 0 đến 9
+      randomPart += Math.floor(Math.random() * 10); // Tạo số ngẫu nhiên từ 0 đến 9
     }
 
     return `${prefix}${randomPart}`; // Kết hợp tiền tố và phần ngẫu nhiên
-};
+  };
 
   const handleAddProduct = async () => {
     const formattedPrice = formatCurrency(price);
@@ -71,6 +71,35 @@ const AddScreen = ({ navigation }) => {
       url = `${URL}/phukien`;
     } else {
       alert('Vui lòng chọn loại sản phẩm hợp lệ');
+      return;
+    }
+
+    if (img === '') {
+      alert('Ảnh sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(name === '') {
+      alert('Tên sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(price === '') {
+      alert('Giá sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(origin === '') {
+      alert('Xuất sứ sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(quantity === '') {
+      alert('Số lượng sản phẩm không được bỏ trống');
+      return;
+    } 
+    if(status === '') {
+      alert('Trạng thái sản phẩm không được bỏ trống');
+      return;
+    }
+    if(description === '') {
+      alert('Mô tả sản phẩm không được bỏ trống');
       return;
     }
 
