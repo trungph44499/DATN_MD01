@@ -31,9 +31,9 @@ const cartReducer = createReducer(initialState, builder => {
             state.items.push({ ...action.payload, quantity: 1 });
         }
     })
-    .addCase(removeAllItem,(state, action) => {
+    .addCase(removeAllItem, (state) => { 
         state.items = [];
-    })
+    });
 });
 
 export default cartReducer;

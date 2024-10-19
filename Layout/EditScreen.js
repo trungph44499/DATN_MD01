@@ -85,6 +85,15 @@ const EditScreen = ({ navigation, route }) => {
       alert('Mô tả sản phẩm không được bỏ trống');
       return;
     }
+    if(isNaN(price)) {
+      alert('Giá sản phẩm phải là số');
+      return;
+    } 
+    if(isNaN(quantity)) {
+      alert('Số lượng sản phẩm phải là số');
+      return;
+    }
+
 
     try {
       const response = await fetch(url, {

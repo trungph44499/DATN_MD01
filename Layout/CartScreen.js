@@ -1,7 +1,7 @@
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View, Modal, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { congItem, removeItem, truItem } from '../Redux/action';
+import { congItem, removeItem, truItem, removeAllItem } from '../Redux/action';
 import { URL } from './HomeScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -12,6 +12,9 @@ const CartScreen = ({ navigation }) => {
     const cartItems = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
     const [totalPrice, setTotalPrice] = useState(0);
+    const [modalVisible, setModalVisible] = useState(false); // Modal cho xóa từng sản phẩm
+    const [modalAllVisible, setModalAllVisible] = useState(false); // Modal cho xóa tất cả sản phẩm
+    const [itemToRemove, setItemToRemove] = useState(null);
 
     useEffect(() => {
         console.log("Cart items: ", cartItems);
@@ -21,10 +24,11 @@ const CartScreen = ({ navigation }) => {
     const calculateTotalPrice = () => {
         let total = 0;
         cartItems.forEach(item => {
-            const price = parseFloat(item.price);
+            const price = parseInt(item.price.replace(/\./g, ''), 10);
             const quantity = parseInt(item.quantity, 10);
-            if (!isNaN(price) && !isNaN(quantity)) {
-                total += price * quantity * 1000000;
+            // Kiểm tra giá và số lượng hợp lệ
+            if (!isNaN(price) && price >= 0 && !isNaN(quantity) && quantity >= 0) {
+                total += price * quantity ; // Có thể bỏ nhân với 1.000.000 nếu không cần thiết
             } else {
                 console.warn(`Invalid price or quantity for item: ${item.name}`);
             }
@@ -60,44 +64,100 @@ const CartScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+
             <View style={styles.header}>
+
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image style={{ width: 20, height: 20 }}
                         source={require('../Image/back.png')} />
                 </TouchableOpacity>
                 <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold' }}>Giỏ hàng</Text>
-                <TouchableOpacity style={{ width: 50 }}>
-                    <Image style={{ width: 26, height: 26 }}
-                        source={require('../Image/delete.png')} />
+                <TouchableOpacity style={{ width: 50 }} onPress={() => {
+                    setModalAllVisible(true); // Hiển thị modal cho xóa tất cả sản phẩm
+                }}>
+                    <Image style={{ width: 26, height: 26 }} source={require('../Image/delete.png')} />
                 </TouchableOpacity>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalAllVisible}
+                    onRequestClose={() => setModalAllVisible(false)}>
+                    <View style={styles.cardCotainer}>
+                        <View />
+                        <View style={styles.cardModal}>
+                            <Text style={styles.textBold}>
+                                Xác nhận xóa tất cả đơn hàng?
+                            </Text>
+                            <Text style={{ fontSize: 14, color: 'gray', fontWeight: '400' }}>
+                                Thao tác này sẽ không thể khồi phục.
+                            </Text>
+                            <Pressable
+                                style={styles.btnModal}
+                                onPress={() => {
+                                    dispatch(removeAllItem());
+                                    setModalAllVisible(false);
+                                }}>
+                                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Đồng ý</Text>
+                            </Pressable>
+                            <Text onPress={() => setModalAllVisible(false)}
+                                style={{ textDecorationLine: 'underline', fontWeight: 'bold', fontSize: 16 }}>Hủy bỏ</Text>
+                        </View>
+                    </View>
+                </Modal>
             </View>
             <ScrollView>
+
                 {cartItems.map(item => (
                     <View key={item.id} style={styles.item}>
                         <Image source={{ uri: item.img }} style={styles.image} />
                         <View style={{ padding: 10, justifyContent: 'space-between', gap: 10 }}>
-                            <Text style={{ marginBottom: 5 , fontWeight: 'bold'}}>{item.name} <Text style={{ color: 'gray' }}>{'\n'}{item.id}</Text>
-                                {'\n'}{item.price} </Text>
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <Text style={{ marginBottom: 1, fontWeight: 'bold' }}>{item.name}</Text>
+                            <Text style={{ marginBottom: 1, fontWeight: 'bold', color: '#FF0000' }}>{item.price}</Text>
+                            <View style={{ flexDirection: 'row' }}>
                                 <TouchableOpacity onPress={() => { dispatch(truItem(item)) }}
                                     style={styles.btn}>
                                     <Image source={require('../Image/subtract.png')} style={styles.icon} />
                                 </TouchableOpacity>
-                                <Text>{item.quantity}</Text>
+                                <Text style={{ marginLeft: 10, marginRight: 10 }}>{item.quantity}</Text>
                                 <TouchableOpacity onPress={() => { dispatch(congItem(item)) }}
                                     style={styles.btn}>
                                     <Image source={require('../Image/add.png')} style={styles.icon} />
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => { dispatch(removeItem(item)) }}>
-                                    <Text style={{ textDecorationLine: 'underline', marginLeft: 5 }}>Xóa</Text>
+                                <TouchableOpacity onPress={() => {
+                                    setItemToRemove(item); // Lưu sản phẩm cần xóa
+                                    setModalVisible(true);  // Hiển thị modal cho xóa từng sản phẩm
+                                }}>
+                                    <Text style={{ textDecorationLine: 'underline', marginLeft: 20 }}>Xóa</Text>
                                 </TouchableOpacity>
                             </View>
 
-                            <View>
-                                <Text style={{ color: 'red' }}>
-                                    {formatPrice(parseFloat(item.price) * parseInt(item.quantity, 10) * 1000000)}
-                                </Text>
-                            </View>
+                            <Modal
+                                animationType="slide"
+                                transparent={true}
+                                visible={modalVisible}
+                                onRequestClose={() => setModalVisible(false)}>
+                                <View style={styles.cardCotainer}>
+                                    <View />
+                                    <View style={styles.cardModal}>
+                                        <Text style={styles.textBold}>
+                                            Xác nhận xóa đơn hàng?
+                                        </Text>
+                                        <Text style={{ fontSize: 14, color: 'gray', fontWeight: '400' }}>
+                                            Thao tác này sẽ không thể khồi phục.
+                                        </Text>
+                                        <Pressable
+                                            style={styles.btnModal}
+                                            onPress={() => {
+                                                dispatch(removeItem(itemToRemove));
+                                                setModalVisible(false);
+                                            }}>
+                                            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>Đồng ý</Text>
+                                        </Pressable>
+                                        <Text onPress={() => setModalVisible(false)}
+                                            style={{ textDecorationLine: 'underline', fontWeight: 'bold', fontSize: 16 }}>Hủy bỏ</Text>
+                                    </View>
+                                </View>
+                            </Modal>
                         </View>
                     </View>
                 ))}
@@ -127,7 +187,7 @@ const CartScreen = ({ navigation }) => {
     );
 };
 
-const styles = {
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
@@ -148,6 +208,9 @@ const styles = {
     image: {
         width: 120,
         height: 120,
+        padding: 5,
+        borderRadius: 10,
+        borderWidth: 1,
     },
     icon: {
         width: 10,
@@ -155,10 +218,41 @@ const styles = {
     },
     btn: {
         padding: 7,
-        borderRadius: 4,
+        borderRadius: 5,
         borderWidth: 1,
-        marginHorizontal: 4,
-    }
-};
+        marginHorizontal: 2,
+    },
+    cardCotainer: {
+        height: "100%",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    cardModal: {
+        width: "90%",
+        marginBottom: 20,
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 30,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    btnModal: {
+        padding: 14,
+        borderRadius: 10,
+        backgroundColor: '#825640',
+        marginVertical: 20,
+        width: '100%',
+        alignItems: "center"
+    },
+    textBold: {
+        fontSize: 16,
+        fontWeight: '400',
+    },
+});
+
 
 export default CartScreen;

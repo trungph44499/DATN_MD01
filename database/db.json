@@ -53,15 +53,15 @@
       "id": "DOG_371301"
     },
     {
-      "id": "DOG_856410",
       "type": "Dog",
-      "img": "https://petnow.com.vn/wp-content/uploads/2023/08/z4579883521265_d462f8cefd3bf01b3a5f6b6859363b12.jpg",
+      "img": "https://product.hstatic.net/200000264739/product/yem_doumm_5_ac5b91f3d25a479b8b061f943a6c2a33_master.jpg",
       "name": "Corgi 4",
-      "price": "5.100.000 ₫",
-      "origin": "Korean",
-      "quantity": "2",
-      "status": "New",
-      "description": "Thú cưng 6 tháng tuổi"
+      "price": "4.500.000 ₫",
+      "origin": "Vn",
+      "quantity": "6",
+      "status": "Old",
+      "description": "C",
+      "id": "DOG_463109"
     }
   ],
   "cats": [
@@ -174,7 +174,59 @@
       "txt": "Corgi 1"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "a0f9",
+      "id_bill": "719b",
+      "id_Product": "ACC_139172",
+      "soLuongMua": 1,
+      "giaMua": "360.000 ₫"
+    },
+    {
+      "id": "009e",
+      "id_bill": "719b",
+      "id_Product": "ACC_084657",
+      "soLuongMua": 1,
+      "giaMua": "210.000 ₫"
+    },
+    {
+      "id": "1493",
+      "id_bill": "2a27",
+      "id_Product": "ACC_032843",
+      "soLuongMua": 3,
+      "giaMua": "1.000.000 ₫"
+    },
+    {
+      "id": "a1bd",
+      "id_bill": "2a27",
+      "id_Product": "ACC_139172",
+      "soLuongMua": 1,
+      "giaMua": "360.000 ₫"
+    }
+  ],
   "notices": [],
-  "hoadons": []
+  "hoadons": [
+    {
+      "id_User": "92c5",
+      "diaChi": "a",
+      "soDienThoai": "a",
+      "ship": true,
+      "pay": true,
+      "total": 585000,
+      "status": 0,
+      "ngayMua": "2024-10-19T11:42:48.057Z",
+      "id": "719b"
+    },
+    {
+      "id_User": "92c5",
+      "diaChi": "a",
+      "soDienThoai": "a",
+      "ship": true,
+      "pay": true,
+      "total": 3375000,
+      "status": 0,
+      "ngayMua": "2024-10-19T11:50:31.361Z",
+      "id": "2a27"
+    }
+  ]
 }
